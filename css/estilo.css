@@ -18,11 +18,18 @@
      Vuelven tres veces: en la marca, en el horizonte de la portada y
      en el friso de la sección del entorno.
 
+   El verde de la página NO es un color de la paleta: es el del bosque
+   de sus propias fotos, que se ve porque el velo del fondo está
+   bastante abierto. La paleta declarada sigue siendo azul y dorada, y
+   el verde entra por la fotografía. La diferencia importa para no
+   pisarse con Prado Verde.
+
    Se aparta a propósito de sus demos hermanas:
-   Prado Verde es verde-hueso de prado sobre fondo claro con acento
-   naranjo brasa, y su pieza central es el plano del terreno. Acá no
-   hay verde, no hay fondo claro y no hay plano. Los Copihues llevará
-   rojo copihue sobre bosque húmedo: tampoco hay rojo acá.
+   Prado Verde es verde-hueso de prado sobre fondo CLARO con acento
+   naranjo brasa, y su pieza central es el plano del terreno. Acá el
+   fondo es oscuro, el verde es fotográfico y no hay plano. Los
+   Copihues llevará rojo copihue sobre bosque húmedo: tampoco hay rojo
+   acá.
 
    TIPOGRAFÍA — por qué este par
    ──────────────────────────────────────────────────────────────────
@@ -47,13 +54,20 @@
   --nivel-alto: #1B3A48;   /* tarjeta destacada */
   --linea:      #26404E;
 
-  /* tinta */
+  /* tinta
+     Los dos secundarios se aclararon a propósito. El fondo de la página
+     dejó de ser un color plano: ahora son fotos del negocio con el velo
+     bastante abierto, y un fondo más vivo obliga a una tinta más clara.
+     Con los valores viejos —#A2B7C4 y #E08268— el velo no podía bajar
+     del 85 % sin que la etiqueta "ejemplo" cayera bajo 4,5:1, y a ese
+     velo no se veía el verde de las fotos, que es justo lo que se
+     buscaba. Aclarándolos, el velo puede abrirse hasta el 68 %. */
   --nieve:  #EAF1F5;       /* la nieve del Villarrica: el texto */
-  --bruma:  #A2B7C4;       /* texto secundario */
+  --bruma:  #BDCED8;       /* texto secundario */
 
   /* acentos */
   --dorado:  #D8B463;      /* bronce viejo de muelle */
-  --merma:   #E08268;      /* ladrillo apagado: sólo donde hay pérdida */
+  --merma:   #F2A48E;      /* ladrillo apagado: sólo donde hay pérdida */
 
   /* los siete lagos, del más cercano al más lejano */
   --lago-1: #2E6E86;   /* Calafquén */
@@ -368,55 +382,60 @@ img,svg{ max-width:100%; }
     rgba(6,15,21,.55) 78%, transparent 100%);
 }
 
-/* ── portada ─────────────────────────────────────────────────────── */
+/* ── portada a sangre ────────────────────────────────────────────
+   La aérea ocupa la primera plana entera y va SIN desenfocar: es la
+   foto que explica de una sola vez qué es este lugar, y encerrada en
+   una tarjeta no lo hacía.
+
+   El velo no es parejo. Se cierra donde vive el texto y se abre donde
+   la foto tiene que verse limpia — vertical en el teléfono (foto
+   arriba, texto abajo) y horizontal en escritorio (texto a la
+   izquierda, foto a la derecha).
+
+   Los porcentajes están medidos, no elegidos a ojo. Sobre una foto
+   NÍTIDA el peor punto posible es blanco puro, así que en la franja
+   donde cae el texto el velo no puede bajar del 88 %: ahí la etiqueta
+   "ejemplo" —el color más flojo de la paleta— da 6,1:1 y el texto
+   secundario 7,2:1. Del 60 % del recorrido en adelante ya no hay texto
+   y el velo se suelta hasta casi nada.                              */
 .portada{
   position:relative; isolation:isolate; overflow:hidden;
-  padding-top:clamp(3rem,7vw,5.5rem);
+  min-height:min(100svh, 780px);
+  display:flex; flex-direction:column; justify-content:flex-end;
+  /* En el teléfono el texto ocupa casi todo el alto, así que el aire de
+     arriba es lo único que deja ver la foto: 40svh de padding son ~325 px
+     de fotografía limpia antes del título. */
+  padding-top:40svh;
 }
-/* Mismo ambiente que las secciones, con la aérea del recinto. Acá el
-   velo es más cerrado arriba, que es donde cae el título. */
-.portada::before,
-.portada::after{
-  content:""; position:absolute; inset:0; z-index:-1; pointer-events:none;
+.portada__foto{
+  position:absolute; inset:0; z-index:-2;
+  width:100%; height:100%;
+  object-fit:cover; object-position:center 45%;
 }
-.portada::before{
-  inset:-6%;
-  background:url("../imagenes/amb-aerea.jpg") center/cover;
-  filter:blur(70px);
-}
-.portada::after{
-  background:linear-gradient(to bottom,
-    color-mix(in srgb, var(--hondo) 90%, transparent),
-    color-mix(in srgb, var(--hondo) 87%, transparent) 60%,
-    color-mix(in srgb, var(--hondo) 92%, transparent));
+.portada__velo{
+  position:absolute; inset:0; z-index:-1; pointer-events:none;
+  /* Móvil: la foto respira arriba y el texto se apoya abajo. El corte del
+     88 % está en el 76 % medido desde abajo porque ahí es donde empieza
+     de verdad el bloque de texto —con el padding-top de 40svh—, no donde
+     quedaría bonito. Con el corte en el 52 %, que fue el primer intento,
+     el título y la bajada quedaban sobre foto sin velo suficiente: el
+     texto llega hasta el 73 % del alto de la portada. */
+  background:linear-gradient(to top,
+    var(--hondo) 0%,
+    var(--hondo) 58%,
+    color-mix(in srgb, var(--hondo) 88%, transparent) 80%,
+    color-mix(in srgb, var(--hondo) 40%, transparent) 91%,
+    color-mix(in srgb, var(--hondo) 10%, transparent) 100%);
 }
 .portada__caja{
+  position:relative;
   width:min(100% - 2.5rem, var(--ancho));
   margin-inline:auto;
-  padding-bottom:clamp(4rem,9vw,7rem);
-  display:grid; gap:clamp(2rem,4vw,3rem);
+  padding-bottom:clamp(3rem,7vw,5rem);
 }
-.portada__caja > *{ min-width:0; }
-.portada__figura{
-  margin:0; position:relative;
-  border-radius:var(--radio); overflow:hidden;
-  border:var(--borde);
-}
-.portada__figura img{
-  display:block; width:100%; height:100%;
-  aspect-ratio:16/10; object-fit:cover;
-}
-.portada__figura figcaption{
-  position:absolute; left:0; right:0; bottom:0;
-  padding:2.2rem 1rem .85rem;
-  font-family:var(--dato); font-size:.72rem; letter-spacing:.06em;
-  color:var(--nieve);
-  background:linear-gradient(to top,
-    rgba(6,15,21,.95) 0%, rgba(6,15,21,.95) 55%,
-    rgba(6,15,21,.55) 78%, transparent 100%);
-}
+.portada__texto{ max-width:34rem; }
 .portada__titulo{
-  font-size:clamp(2.3rem, 1.3rem + 4.4vw, 4.4rem);
+  font-size:clamp(2.2rem, 1.1rem + 3.6vw, 3.6rem);
   margin-bottom:1.4rem;
   max-width:16ch;
 }
@@ -427,8 +446,8 @@ img,svg{ max-width:100%; }
 .portada__acciones{ display:flex; flex-wrap:wrap; gap:.75rem; margin-bottom:3.2rem; }
 
 .credenciales{
-  display:flex; flex-wrap:wrap; gap:1.6rem 3rem;
-  margin:0; padding-top:1.8rem; border-top:var(--borde);
+  display:flex; flex-wrap:wrap; gap:1.2rem 2rem;
+  margin:0; padding-top:1.6rem; border-top:var(--borde);
 }
 .credenciales__item{ min-width:0; }
 .credenciales dt{
@@ -482,16 +501,20 @@ img,svg{ max-width:100%; }
    El contraste no queda al azar, y se resuelve en dos capas.
 
    Primero, los archivos `amb-*.jpg` se generan con un TECHO DE
-   LUMINANCIA de 0,21 y la saturación ya aplicada al pixel. Eso no es
+   LUMINANCIA de 0,32 y la saturación (×1,8) ya aplicada al pixel. No es
    adorno: la foto de la cabaña tiene el cielo quemado y dejaba una
    mancha de (252,253,252) —blanco— detrás de la sección. Medido, ahí la
    etiqueta "ejemplo", que es el color más flojo de la paleta, caía a
    3,6:1. El techo escala los canales del pixel que se pasa, así que
    apaga lo quemado sin lavarle el color al resto.
 
-   Segundo, encima va un velo del color de la sección entre 88 % y 85 %.
-   Con las dos capas, el peor punto de la página da 4,83:1 para la
-   etiqueta y 6,7:1 para el texto secundario.
+   Segundo, encima va un velo del color de la sección entre 72 % y 68 %.
+   Empezó en 88-85 %, que era seguro pero mataba el color: no se veía el
+   verde del bosque, que es lo que le da temperatura a la página. Bajarlo
+   hasta acá se pudo recién después de aclarar --bruma y --merma (ver el
+   comentario de la paleta).
+   Con las dos capas, el peor punto de la página da 4,9:1 para la
+   etiqueta y 5,8:1 para el texto secundario.
 
    La saturación va en el archivo y no en `filter: saturate()` a
    propósito: así lo que se puede medir en el archivo es exactamente lo
@@ -516,8 +539,8 @@ img,svg{ max-width:100%; }
 }
 .seccion::after{
   background:linear-gradient(to bottom,
-    color-mix(in srgb, var(--fondo-local) 88%, transparent),
-    color-mix(in srgb, var(--fondo-local) 85%, transparent));
+    color-mix(in srgb, var(--fondo-local) 72%, transparent),
+    color-mix(in srgb, var(--fondo-local) 68%, transparent));
 }
 .aguas   { --amb:url("../imagenes/amb-piscina-techada.jpg"); }
 .cuenta  { --amb:url("../imagenes/amb-piscina-atardecer.jpg"); }
@@ -893,6 +916,14 @@ a.contacto__item:hover strong{ color:var(--dorado); }
   border-top:2px solid var(--dorado);
   --amb:url("../imagenes/amb-piscina-noche.jpg");
 }
+/* Su base (--lago-7) es más clara que la del resto, así que con el velo
+   general del 68 % el "borde punteado" en línea quedaba en 4,47:1 — tres
+   centésimas por debajo del mínimo. Acá el velo va un punto más cerrado. */
+.hablemos::after{
+  background:linear-gradient(to bottom,
+    color-mix(in srgb, var(--fondo-local) 78%, transparent),
+    color-mix(in srgb, var(--fondo-local) 74%, transparent));
+}
 .hablemos__titulo{
   font-size:clamp(1.8rem,1.2rem + 2.4vw,3rem);
   margin-bottom:clamp(2rem,4vw,3rem);
@@ -1070,15 +1101,23 @@ a.contacto__item:hover{ background-color:var(--nivel-alto); }
 .js .portada__titulo,
 .js .portada__bajada,
 .js .portada__acciones,
-.js .credenciales,
-.js .portada__figura{
+.js .credenciales{
   animation:entrar .75s cubic-bezier(.22,.8,.3,1) both;
 }
 .js .portada__titulo   { animation-delay:.04s; }
 .js .portada__bajada   { animation-delay:.16s; }
 .js .portada__acciones { animation-delay:.26s; }
 .js .credenciales      { animation-delay:.36s; }
-.js .portada__figura   { animation-delay:.12s; }
+
+/* La foto de fondo entra sólo con opacidad y un acercamiento mínimo. No
+   comparte la animación de arriba a propósito: `entrar` desplaza en Y, y
+   una imagen que cubre toda la sección con object-fit dejaría asomando
+   la franja de la que se corre. */
+@keyframes asomar{
+  from{ opacity:0; transform:scale(1.06); }
+  to  { opacity:1; transform:none; }
+}
+.js .portada__foto{ animation:asomar 1.1s cubic-bezier(.22,.8,.3,1) both; }
 
 /* La entrada al hacer scroll no es sólo un desplazamiento: la pieza
    llega desde abajo, un punto más chica y desenfocada, y se asienta.
@@ -1139,7 +1178,7 @@ a.contacto__item:hover{ background-color:var(--nivel-alto); }
   .js .portada__bajada,
   .js .portada__acciones,
   .js .credenciales,
-  .js .portada__figura{ animation-duration:.3s; animation-delay:0s; }
+  .js .portada__foto{ animation-duration:.3s; animation-delay:0s; }
   .boton:hover{ transform:none; }
   .marca:hover .marca__pavo{ transform:none; }
   .foto:hover img{ transform:none; }
@@ -1149,12 +1188,27 @@ a.contacto__item:hover{ background-color:var(--nivel-alto); }
 @media (min-width:900px){
   .boletas{ grid-template-columns:1fr 1fr; }
   .caja--doble{ grid-template-columns:1.15fr .85fr; align-items:start; }
-  /* La portada se abre en dos: el texto a la izquierda sobre fondo sólido
-     —ahí el contraste está garantizado— y la foto a la derecha. Nada de
-     texto encima de la fotografía: con una aérea llena de follaje claro y
-     oscuro no hay velo que asegure 4,5:1 en todos los puntos. */
-  .portada__caja{ grid-template-columns:1.05fr .95fr; align-items:center; }
-  .portada__figura img{ aspect-ratio:4/5; }
+  /* En escritorio el velo se da vuelta: pasa a ser horizontal. El texto
+     vive en la mitad izquierda, donde nunca baja del 88 %, y la foto
+     queda limpia a la derecha. El corte al 52 % está calculado contra el
+     ancho real de la columna de texto (34 rem partiendo del margen), no
+     puesto a ojo. El ancho del texto se ata además al viewport: sin el
+     46vw, en una ventana de 930 px el párrafo llegaba al 61 % y se
+     salía de la franja protegida del velo. */
+  .portada{ padding-top:clamp(6rem,13vh,8rem); }
+  .portada__texto{ max-width:min(38rem, 52vw); }
+  .portada__velo{
+    background:
+      linear-gradient(to right,
+        var(--hondo) 0%,
+        color-mix(in srgb, var(--hondo) 90%, transparent) 46%,
+        color-mix(in srgb, var(--hondo) 88%, transparent) 58%,
+        color-mix(in srgb, var(--hondo) 40%, transparent) 78%,
+        color-mix(in srgb, var(--hondo) 8%, transparent) 100%),
+      linear-gradient(to top,
+        color-mix(in srgb, var(--hondo) 60%, transparent) 0%,
+        transparent 38%);
+  }
   .aguas__principal{ grid-template-columns:.85fr 1.15fr; }
   .aguas__principal .foto--alta{ order:-1; }
   .lagos__doble{ grid-template-columns:1.35fr .65fr; align-items:start; }

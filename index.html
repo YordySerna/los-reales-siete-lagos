@@ -78,6 +78,18 @@ window.rescateJS = setTimeout(function(){document.documentElement.classList.remo
 
 <!-- ═══════════════════ 1 · PORTADA ═══════════════════ -->
 <section class="portada" id="inicio" aria-label="Presentación">
+
+  <!-- La aérea va a sangre y SIN desenfocar: es la foto que muestra de una
+       sola vez qué es este lugar. Va como <img> y no como background-image
+       para poder pedirla con fetchpriority y dejarle su texto alternativo. -->
+  <img class="portada__foto" src="imagenes/aerea-complejo.jpg"
+       alt="Vista aérea del centro turístico: la piscina con su cascada al centro, rodeada de cabañas de madera y árboles."
+       width="1200" height="633" fetchpriority="high" decoding="async">
+  <!-- El velo no es parejo: se cierra donde vive el texto y se abre donde la
+       foto tiene que verse limpia. Los porcentajes están medidos, no
+       elegidos a ojo — ver el comentario del CSS. -->
+  <div class="portada__velo" aria-hidden="true"></div>
+
   <div class="portada__caja">
 
     <div class="portada__texto">
@@ -115,13 +127,6 @@ window.rescateJS = setTimeout(function(){document.documentElement.classList.remo
         </div>
       </dl>
     </div>
-
-    <figure class="portada__figura">
-      <img src="imagenes/aerea-complejo.jpg"
-           alt="Vista aérea del centro turístico: la piscina con su cascada al centro, rodeada de cabañas de madera y árboles."
-           width="1200" height="633" fetchpriority="high" decoding="async">
-      <figcaption>El recinto completo, visto desde arriba</figcaption>
-    </figure>
 
   </div>
 
