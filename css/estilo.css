@@ -1,0 +1,1237 @@
+/* ═══════════════════════════════════════════════════════════════════
+   Cabañas Los Reales de los Siete Lagos · Licán Ray
+   Demo de presentación — tanda T1 (alojamiento)
+
+   IDENTIDAD — de dónde sale y de qué se aparta
+   ──────────────────────────────────────────────────────────────────
+   El nombre trae dos cosas y las dos mandan acá: "Los Reales" y
+   "Siete Lagos".
+
+   · El color es el agua andina de tarde, no el celeste de agencia de
+     turismo: azules profundos, casi negros, que es como se ve un lago
+     de la zona con el cerro encima. Sobre eso, un dorado viejo y
+     apagado —de bronce de muelle, no de corona de clipart—: lo "real"
+     entendido como sobriedad. El único otro color es un ladrillo
+     desaturado, y sólo aparece donde hay una pérdida que mostrar.
+   · Los siete lagos son literalmente siete tonos de azul, del más
+     cercano (Calafquén, el de la puerta) al más lejano (Riñihue).
+     Vuelven tres veces: en la marca, en el horizonte de la portada y
+     en el friso de la sección del entorno.
+
+   Se aparta a propósito de sus demos hermanas:
+   Prado Verde es verde-hueso de prado sobre fondo claro con acento
+   naranjo brasa, y su pieza central es el plano del terreno. Acá no
+   hay verde, no hay fondo claro y no hay plano. Los Copihues llevará
+   rojo copihue sobre bosque húmedo: tampoco hay rojo acá.
+
+   TIPOGRAFÍA — por qué este par
+   ──────────────────────────────────────────────────────────────────
+   · Newsreader (display) es una serif editorial de tamaño óptico
+     variable, hecha para leerse en pantalla. Le da al sitio aire de
+     documento impreso —que es justo lo que pide una pieza que se
+     llama "La cuenta clara"— sin caer en la serif de hotel de lujo.
+   · Public Sans (texto) es una grotesca neutra de aperturas abiertas,
+     diseñada para formularios y datos. No compite con la serif: la
+     deja hablar y aguanta párrafos largos en gris claro.
+   · DM Mono (dato) para cifras, kilómetros y las boletas. Monoespaciada
+     de trazo fino: alinea columnas de pesos sin verse de terminal.
+   Ninguna de las tres se repite en los proyectos anteriores de Yordy
+   ni en las otras demos.
+   ═══════════════════════════════════════════════════════════════════ */
+
+:root{
+  /* superficie — el lago de tarde, de la orilla al fondo */
+  --hondo:      #0D1B24;   /* el fondo del sitio */
+  --hondo-2:    #112330;   /* secciones alternas */
+  --nivel:      #16303D;   /* tarjetas y papel */
+  --nivel-alto: #1B3A48;   /* tarjeta destacada */
+  --linea:      #26404E;
+
+  /* tinta */
+  --nieve:  #EAF1F5;       /* la nieve del Villarrica: el texto */
+  --bruma:  #A2B7C4;       /* texto secundario */
+
+  /* acentos */
+  --dorado:  #D8B463;      /* bronce viejo de muelle */
+  --merma:   #E08268;      /* ladrillo apagado: sólo donde hay pérdida */
+
+  /* los siete lagos, del más cercano al más lejano */
+  --lago-1: #2E6E86;   /* Calafquén */
+  --lago-2: #2A6178;   /* Pullinque */
+  --lago-3: #26556A;   /* Pellaifa */
+  --lago-4: #22495C;   /* Panguipulli */
+  --lago-5: #1E3D4E;   /* Neltume */
+  --lago-6: #1A3140;   /* Riñihue */
+  --lago-7: #162632;   /* Pirihueico */
+
+  /* tipografía */
+  --display: "Newsreader", Georgia, "Times New Roman", serif;
+  --cuerpo:  "Public Sans", "Segoe UI", system-ui, sans-serif;
+  --dato:    "DM Mono", ui-monospace, "Consolas", monospace;
+
+  /* medidas */
+  --ancho: 1120px;
+  --radio: 10px;
+  --borde: 1px solid var(--linea);
+
+  /* fondo de la sección actual: lo usa la etiqueta "ejemplo" para
+     recortar el borde punteado sin que se le note el parche */
+  --fondo-local: var(--hondo);
+}
+
+/* ── base ────────────────────────────────────────────────────────── */
+*,*::before,*::after{ box-sizing:border-box; }
+[hidden]{ display:none !important; }
+
+html{
+  /* Sin esta línea el navegador dibuja los controles nativos en claro:
+     la barra de scroll sale blanca y el selector de fecha del
+     formulario queda con fondo blanco y letra clara, ilegible. */
+  color-scheme:dark;
+  scroll-behavior:smooth;
+  -webkit-text-size-adjust:100%;
+}
+
+body{
+  margin:0;
+  background:var(--hondo);
+  color:var(--nieve);
+  font-family:var(--cuerpo);
+  font-size:clamp(1rem, .96rem + .2vw, 1.075rem);
+  line-height:1.62;
+  -webkit-font-smoothing:antialiased;
+  /* el <meta viewport> lleva viewport-fit=cover: sin esto el contenido
+     se mete bajo la muesca y bajo la barra de gestos del iPhone */
+  padding-inline:env(safe-area-inset-left) env(safe-area-inset-right);
+  padding-bottom:env(safe-area-inset-bottom);
+  overflow-x:hidden;
+}
+
+h1,h2,h3{
+  font-family:var(--display);
+  font-weight:500;
+  line-height:1.1;
+  letter-spacing:-.012em;
+  margin:0;
+  text-wrap:balance;
+}
+
+p{ margin:0 0 1em; text-wrap:pretty; }
+p:last-child{ margin-bottom:0; }
+
+a{ color:inherit; }
+a,button,input,select,textarea,label,summary{ touch-action:manipulation; }
+
+img,svg{ max-width:100%; }
+
+:focus-visible{
+  outline:3px solid var(--dorado);
+  outline-offset:3px;
+  border-radius:4px;
+}
+
+.saltar{
+  position:absolute; left:-9999px; top:0; z-index:200;
+  background:var(--dorado); color:var(--hondo);
+  padding:.8rem 1.2rem; font-weight:700; text-decoration:none;
+  border-radius:6px;
+}
+.saltar:focus{ left:1rem; top:1rem; }
+
+.caja{ width:min(100% - 2.5rem, var(--ancho)); margin-inline:auto; }
+
+.ojo{
+  font-family:var(--dato);
+  font-size:.72rem;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--bruma);
+  margin:0 0 1rem;
+}
+.ojo--dorado{ color:var(--dorado); }
+
+/* ── marcador de dato de ejemplo ─────────────────────────────────
+   Todo lo que lleva .ej es relleno. Se ve a simple vista para poder
+   decir en la reunión "esto se completa con sus datos reales", y se
+   borra junto con la clase cuando el dato llega.                    */
+.ej{
+  position:relative;
+  outline:1px dashed color-mix(in srgb, var(--merma) 55%, transparent);
+  outline-offset:10px;
+  border-radius:2px;
+}
+.ej::after{
+  content:"ejemplo";
+  position:absolute; top:-10px; right:-10px;
+  transform:translateY(-100%);
+  font-family:var(--dato); font-size:.62rem; letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--merma);
+  background:var(--fondo-local);
+  padding:0 .4rem;
+  pointer-events:none;
+}
+.ej--inline{
+  display:inline; outline-offset:3px; color:var(--merma);
+  font-weight:600;
+}
+.ej--inline::after{ content:none; }
+
+/* ── banda de propuesta ──────────────────────────────────────────── */
+.propuesta{ background:var(--lago-4); color:var(--nieve); }
+.propuesta__cinta{
+  width:min(100% - 2.5rem, var(--ancho));
+  margin-inline:auto;
+  display:flex; flex-wrap:wrap; align-items:center; gap:.5rem 1.1rem;
+  padding:.7rem 0;
+  font-size:.86rem;
+}
+.propuesta__marca{
+  font-family:var(--dato); font-size:.68rem;
+  letter-spacing:.14em; text-transform:uppercase;
+  color:var(--hondo); background:var(--dorado);
+  padding:.28rem .6rem; border-radius:3px;
+  white-space:nowrap;
+}
+.propuesta__txt{ margin:0; flex:1 1 22rem; color:color-mix(in srgb,var(--nieve) 90%, transparent); }
+.propuesta__txt strong{ color:var(--nieve); }
+.propuesta__txt code{ font-family:var(--dato); font-size:.9em; color:var(--dorado); }
+.propuesta__link{
+  font-weight:600; color:var(--dorado);
+  text-underline-offset:4px; white-space:nowrap;
+  /* medido: sin esto quedaba en 22 px de alto y es lo primero que se
+     toca en el teléfono */
+  display:inline-flex; align-items:center; min-height:44px;
+}
+
+/* ── cabecera flotante ───────────────────────────────────────────
+   No es la barra pegada al borde de siempre: es una isla que flota
+   sobre el contenido, separada de los cuatro cantos, con el fondo
+   difuminado y su propia sombra. Al bajar se encoge y se opaca —esa
+   clase la pone main.js—, y si el script no llega se queda en el
+   estado suelto, que también se ve terminado.
+
+   Va con position:sticky y no fixed a propósito: sticky conserva su
+   hueco en el flujo, así la banda de propuesta de arriba no le queda
+   debajo ni hay que compensar con padding en el body.              */
+.cabecera{
+  position:sticky; top:0; z-index:100;
+  padding:clamp(.55rem,1.4vw,.9rem) 0;
+  /* el contenedor deja pasar el cursor; sólo la isla lo recibe */
+  pointer-events:none;
+}
+.cabecera__caja{
+  pointer-events:auto;
+  position:relative;
+  width:min(100% - 2rem, var(--ancho));
+  margin-inline:auto;
+  display:flex; align-items:center; justify-content:space-between;
+  gap:1rem; padding:.55rem .55rem .55rem 1.1rem;
+  border-radius:18px;
+  background:color-mix(in srgb, var(--nivel) 74%, transparent);
+  border:1px solid color-mix(in srgb, var(--nieve) 9%, transparent);
+  backdrop-filter:blur(20px) saturate(150%);
+  -webkit-backdrop-filter:blur(20px) saturate(150%);
+  box-shadow:0 14px 34px -18px rgba(0,0,0,.85);
+  transition:padding .3s ease, border-radius .3s ease,
+             background-color .3s ease, box-shadow .3s ease;
+}
+/* estado al despegar del tope */
+.cabecera--pegada .cabecera__caja{
+  padding-block:.35rem;
+  border-radius:14px;
+  background:color-mix(in srgb, var(--nivel) 92%, transparent);
+  box-shadow:0 18px 40px -16px rgba(0,0,0,.95);
+}
+
+/* avance de lectura: cero JavaScript, se engancha al scroll de la raíz */
+.cabecera__avance{
+  position:absolute; left:1.1rem; right:1.1rem; bottom:-1px; height:2px;
+  border-radius:2px; transform-origin:0 50%; transform:scaleX(0);
+  background:linear-gradient(90deg,var(--lago-1),var(--dorado));
+  opacity:0; transition:opacity .3s ease;
+}
+.cabecera--pegada .cabecera__avance{ opacity:.9; }
+@supports (animation-timeline:scroll()){
+  .cabecera__avance{
+    animation:avanzar linear both;
+    animation-timeline:scroll(root block);
+  }
+}
+@keyframes avanzar{ from{ transform:scaleX(0); } to{ transform:scaleX(1); } }
+.marca{
+  display:flex; align-items:center; gap:.65rem; text-decoration:none;
+  color:var(--dorado); min-height:44px;
+}
+/* El pavo real es la marca de verdad del negocio: sale de su logo, con el
+   fondo morado quitado y recortado al contenido. Antes acá había un SVG de
+   siete líneas dibujado a mano, que era el andamio mientras no había
+   material del cliente. Ya lo hay, así que manda el suyo. */
+.marca__pavo{
+  width:auto; height:34px; flex:none;
+  transition:transform .45s cubic-bezier(.22,.8,.3,1), filter .35s ease;
+  filter:drop-shadow(0 2px 6px rgba(0,0,0,.5));
+}
+.marca:hover .marca__pavo{ transform:scale(1.09) rotate(-3deg); }
+.marca__txt{
+  font-family:var(--display); font-weight:600; font-size:1.12rem;
+  line-height:1.05; color:var(--nieve);
+  display:flex; flex-direction:column;
+}
+.marca__txt small{
+  font-family:var(--dato); font-weight:400; font-size:.6rem;
+  letter-spacing:.13em; text-transform:uppercase; color:var(--bruma);
+  margin-top:.22rem;
+}
+.nav{ position:relative; display:flex; align-items:center; gap:.15rem; flex-wrap:wrap; }
+.nav a{
+  position:relative; z-index:1;
+  text-decoration:none; font-size:.88rem; font-weight:500;
+  padding:.5rem .7rem; border-radius:999px; color:var(--bruma);
+  transition:color .25s ease;
+}
+.nav a:hover{ color:var(--nieve); }
+.nav a[aria-current="true"]{ color:var(--dorado); }
+
+/* La pastilla se desliza de un enlace a otro en vez de que cada uno
+   encienda su propio fondo. main.js le pasa posición y ancho; sin
+   script se queda en opacidad 0 y no estorba. */
+.nav__pastilla{
+  position:absolute; left:0; top:50%; z-index:0;
+  height:2.05rem; width:0; margin-top:-1.02rem;
+  border-radius:999px;
+  background:color-mix(in srgb, var(--dorado) 15%, transparent);
+  border:1px solid color-mix(in srgb, var(--dorado) 28%, transparent);
+  opacity:0; pointer-events:none;
+  transition:transform .42s cubic-bezier(.22,.8,.3,1),
+             width .42s cubic-bezier(.22,.8,.3,1),
+             opacity .25s ease;
+}
+.nav__cta{
+  background:var(--dorado); color:var(--hondo) !important;
+  font-weight:700; border-radius:999px; padding:.5rem 1.05rem;
+  transition:background-color .25s ease, transform .25s ease, box-shadow .25s ease;
+}
+.nav__cta:hover{
+  background:#E8C77F; color:var(--hondo) !important;
+  transform:translateY(-1px);
+  box-shadow:0 8px 18px -8px color-mix(in srgb,var(--dorado) 80%,transparent);
+}
+
+/* ── botones ─────────────────────────────────────────────────────── */
+.boton{
+  display:inline-block;
+  font-family:var(--cuerpo); font-weight:600; font-size:.95rem;
+  padding:.82rem 1.4rem; border:1px solid transparent; border-radius:7px;
+  text-decoration:none; cursor:pointer; text-align:center;
+  transition:transform .16s ease, background-color .16s ease, color .16s ease, border-color .16s ease;
+}
+.boton:hover{ transform:translateY(-2px); }
+.boton--dorado{ background:var(--dorado); color:var(--hondo); border-color:var(--dorado); }
+.boton--dorado:hover{ background:#E8C77F; border-color:#E8C77F; }
+.boton--linea{ border-color:var(--linea); color:var(--nieve); background:transparent; }
+.boton--linea:hover{ border-color:var(--dorado); color:var(--dorado); }
+
+/* ── fotografías ─────────────────────────────────────────────────
+   Las fotos son del negocio. Van dentro de un marco con esquinas
+   redondeadas y overflow oculto, y la imagen las llena con object-fit
+   para que la proporción del marco mande sobre la del archivo: así una
+   foto vertical y una horizontal pueden convivir en la misma fila sin
+   que ninguna se deforme.
+   Todas llevan width/height en el HTML —aunque el CSS después las
+   estire— porque es lo que le permite al navegador reservar el hueco
+   antes de bajarlas y no dar el salto de maquetado al cargar.        */
+.foto{
+  position:relative; margin:0;
+  border-radius:var(--radio); overflow:hidden;
+  background:var(--nivel); border:var(--borde);
+}
+.foto img{
+  display:block; width:100%; height:100%;
+  aspect-ratio:4/3; object-fit:cover;
+  transition:transform .7s cubic-bezier(.22,.8,.3,1);
+}
+.foto--alta img{ aspect-ratio:3/4; }
+.foto:hover img{ transform:scale(1.045); }
+/* El velo del pie de foto llega casi opaco hasta el 55 % de su alto, que
+   es donde cae el renglón de texto, y recién ahí se disuelve. Con un
+   degradado que se aclarara antes, una foto de cielo quemado detrás —hay
+   dos— dejaría el texto por debajo de 4,5:1 y no habría forma de saberlo
+   midiendo el CSS: el fondo sería la fotografía. */
+.foto figcaption{
+  position:absolute; left:0; right:0; bottom:0;
+  padding:2rem .9rem .75rem;
+  font-family:var(--dato); font-size:.72rem; letter-spacing:.06em;
+  color:var(--nieve);
+  background:linear-gradient(to top,
+    rgba(6,15,21,.95) 0%, rgba(6,15,21,.95) 55%,
+    rgba(6,15,21,.55) 78%, transparent 100%);
+}
+
+/* ── portada ─────────────────────────────────────────────────────── */
+.portada{
+  position:relative; isolation:isolate; overflow:hidden;
+  padding-top:clamp(3rem,7vw,5.5rem);
+}
+/* Mismo ambiente que las secciones, con la aérea del recinto. Acá el
+   velo es más cerrado arriba, que es donde cae el título. */
+.portada::before,
+.portada::after{
+  content:""; position:absolute; inset:0; z-index:-1; pointer-events:none;
+}
+.portada::before{
+  inset:-6%;
+  background:url("../imagenes/amb-aerea.jpg") center/cover;
+  filter:blur(70px);
+}
+.portada::after{
+  background:linear-gradient(to bottom,
+    color-mix(in srgb, var(--hondo) 90%, transparent),
+    color-mix(in srgb, var(--hondo) 87%, transparent) 60%,
+    color-mix(in srgb, var(--hondo) 92%, transparent));
+}
+.portada__caja{
+  width:min(100% - 2.5rem, var(--ancho));
+  margin-inline:auto;
+  padding-bottom:clamp(4rem,9vw,7rem);
+  display:grid; gap:clamp(2rem,4vw,3rem);
+}
+.portada__caja > *{ min-width:0; }
+.portada__figura{
+  margin:0; position:relative;
+  border-radius:var(--radio); overflow:hidden;
+  border:var(--borde);
+}
+.portada__figura img{
+  display:block; width:100%; height:100%;
+  aspect-ratio:16/10; object-fit:cover;
+}
+.portada__figura figcaption{
+  position:absolute; left:0; right:0; bottom:0;
+  padding:2.2rem 1rem .85rem;
+  font-family:var(--dato); font-size:.72rem; letter-spacing:.06em;
+  color:var(--nieve);
+  background:linear-gradient(to top,
+    rgba(6,15,21,.95) 0%, rgba(6,15,21,.95) 55%,
+    rgba(6,15,21,.55) 78%, transparent 100%);
+}
+.portada__titulo{
+  font-size:clamp(2.3rem, 1.3rem + 4.4vw, 4.4rem);
+  margin-bottom:1.4rem;
+  max-width:16ch;
+}
+.portada__bajada{
+  font-size:clamp(1.05rem,1rem + .35vw,1.22rem);
+  color:var(--bruma); max-width:56ch; margin-bottom:2.2rem;
+}
+.portada__acciones{ display:flex; flex-wrap:wrap; gap:.75rem; margin-bottom:3.2rem; }
+
+.credenciales{
+  display:flex; flex-wrap:wrap; gap:1.6rem 3rem;
+  margin:0; padding-top:1.8rem; border-top:var(--borde);
+}
+.credenciales__item{ min-width:0; }
+.credenciales dt{
+  font-family:var(--dato); font-size:.66rem; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--bruma); margin-bottom:.4rem;
+}
+.credenciales dd{ margin:0; display:flex; align-items:baseline; gap:.55rem; }
+.credenciales dd strong{
+  font-family:var(--display); font-weight:600; font-size:1.7rem;
+  color:var(--dorado); line-height:1;
+}
+.credenciales dd span{ font-size:.85rem; color:var(--bruma); }
+
+/* Horizonte de los siete lagos. Dibujado, no fotografiado: este negocio
+   no tiene material visual público, así que la portada se sostiene sola. */
+.horizonte{ line-height:0; }
+.horizonte svg{ display:block; width:100%; height:clamp(140px,20vw,240px); }
+.horizonte__cielo{ fill:#10222D; }
+.horizonte__cordon{ fill:#0A1720; }
+.horizonte__volcan{ fill:#081319; }
+.horizonte__nieve{ fill:#3E5C6B; }
+.horizonte__agua--7{ fill:var(--lago-7); }
+.horizonte__agua--6{ fill:var(--lago-6); }
+.horizonte__agua--5{ fill:var(--lago-5); }
+.horizonte__agua--4{ fill:var(--lago-4); }
+.horizonte__agua--3{ fill:var(--lago-3); }
+.horizonte__agua--2{ fill:var(--lago-2); }
+.horizonte__agua--1{ fill:var(--lago-1); }
+
+/* ── secciones ───────────────────────────────────────────────────── */
+.seccion{
+  position:relative; isolation:isolate; overflow:hidden;
+  padding:clamp(3.5rem,8vw,6rem) 0;
+  /* la isla flota encima: sin este margen el título de la sección
+     aterriza tapado al tocar un enlace del menú */
+  scroll-margin-top:6.5rem;
+  --amb:none;
+}
+.cuenta,.tarifas,.lagos,.reservar{ background:var(--hondo-2); --fondo-local:var(--hondo-2); }
+.cabanas,.incluye,.llegar{ background:var(--hondo); --fondo-local:var(--hondo); }
+
+/* ── ambiente: las mismas fotos, difuminadas, detrás de todo ──────
+   Cada sección lleva de fondo una foto del propio negocio, desenfocada
+   hasta que no queda nada legible: sólo manchas de color —el turquesa
+   del agua, el verde del bosque, la madera— que le sacan a la página el
+   aire de documento.
+
+   Son las MISMAS URL que ya usa el contenido más abajo, así que el
+   navegador las tiene en caché y el ambiente no cuesta un solo KB extra.
+
+   El contraste no queda al azar, y se resuelve en dos capas.
+
+   Primero, los archivos `amb-*.jpg` se generan con un TECHO DE
+   LUMINANCIA de 0,21 y la saturación ya aplicada al pixel. Eso no es
+   adorno: la foto de la cabaña tiene el cielo quemado y dejaba una
+   mancha de (252,253,252) —blanco— detrás de la sección. Medido, ahí la
+   etiqueta "ejemplo", que es el color más flojo de la paleta, caía a
+   3,6:1. El techo escala los canales del pixel que se pasa, así que
+   apaga lo quemado sin lavarle el color al resto.
+
+   Segundo, encima va un velo del color de la sección entre 88 % y 85 %.
+   Con las dos capas, el peor punto de la página da 4,83:1 para la
+   etiqueta y 6,7:1 para el texto secundario.
+
+   La saturación va en el archivo y no en `filter: saturate()` a
+   propósito: así lo que se puede medir en el archivo es exactamente lo
+   que se ve en pantalla.
+
+   El ::before va con z-index:-1 dentro del stacking context que abre
+   `isolation`, así queda sobre el color de fondo de la sección y bajo
+   el contenido, sin tocar el texto.                                  */
+.seccion::before,
+.seccion::after{
+  content:""; position:absolute; inset:0; z-index:-1;
+  pointer-events:none;
+}
+.seccion::before{
+  background-image:var(--amb);
+  background-size:cover;
+  background-position:center;
+  /* se estira un poco más allá del borde: el desenfoque, si no, deja
+     una orilla lavada en los cuatro cantos */
+  inset:-6%;
+  filter:blur(64px);
+}
+.seccion::after{
+  background:linear-gradient(to bottom,
+    color-mix(in srgb, var(--fondo-local) 88%, transparent),
+    color-mix(in srgb, var(--fondo-local) 85%, transparent));
+}
+.aguas   { --amb:url("../imagenes/amb-piscina-techada.jpg"); }
+.cuenta  { --amb:url("../imagenes/amb-piscina-atardecer.jpg"); }
+.cabanas { --amb:url("../imagenes/amb-cabana.jpg"); }
+.tarifas { --amb:url("../imagenes/amb-cabana.jpg"); }
+.incluye { --amb:url("../imagenes/amb-sendero.jpg"); }
+.lagos   { --amb:url("../imagenes/amb-sendero.jpg"); }
+.llegar  { --amb:url("../imagenes/amb-piscina-atardecer.jpg"); }
+.reservar{ --amb:url("../imagenes/amb-piscina-techada.jpg"); }
+
+.titular{ max-width:64ch; margin:0 auto clamp(2.5rem,5vw,3.5rem); text-align:center; }
+.titular--izq{ margin-inline:0; text-align:left; }
+.titular h2{ font-size:clamp(1.75rem,1.2rem + 2.1vw,2.75rem); margin-bottom:1rem; }
+.titular__bajada{ color:var(--bruma); margin:0; }
+
+.caja--doble{ display:grid; gap:clamp(2rem,4vw,3.5rem); }
+.caja--doble > *{ min-width:0; }
+
+/* ═══ LA CUENTA CLARA · pieza firma ═══════════════════════════════
+   Dos boletas dibujadas en SVG, una por canal de venta. Cada una es
+   su propio <svg> en vez de las dos dentro de uno solo: así en el
+   teléfono se apilan y el texto conserva su tamaño, en lugar de
+   encogerse a la mitad para que quepan lado a lado.                */
+.boletas{
+  display:grid; gap:clamp(1.5rem,3vw,2.5rem);
+  margin-bottom:clamp(2.5rem,5vw,3.5rem);
+}
+.boletas > *{ min-width:0; }
+.boleta{ margin:0; }
+.boleta svg{ display:block; width:100%; height:auto; }
+
+.bol__papel{ fill:var(--nivel); stroke:var(--linea); stroke-width:1; }
+.bol__papel--directo{ fill:var(--nivel-alto); stroke:var(--dorado); stroke-width:1.5; }
+
+.bol__linea{ stroke:var(--linea); stroke-width:1; fill:none; }
+.bol__corte{ stroke:var(--bruma); stroke-width:1.2; stroke-dasharray:5 6; fill:none; opacity:.6; }
+
+.bol__canal{
+  font-family:var(--dato); font-size:14px; letter-spacing:.18em;
+  fill:var(--dorado);
+}
+.bol__canal--merma{ fill:var(--merma); }
+.bol__tit{ font-family:var(--display); font-weight:600; font-size:27px; fill:var(--nieve); }
+.bol__sub{ font-family:var(--dato); font-size:14px; fill:var(--bruma); }
+.bol__ficha{
+  font-family:var(--dato); font-size:13.5px; letter-spacing:.06em;
+  fill:var(--bruma);
+}
+
+.bol__lab{ font-family:var(--cuerpo); font-size:17px; fill:var(--nieve); }
+.bol__lab--nulo{ fill:var(--bruma); }
+.bol__val{
+  font-family:var(--dato); font-size:17.5px; fill:var(--nieve);
+  text-anchor:end;
+}
+.bol__val--nulo{ fill:var(--bruma); }
+.bol__val--merma{ fill:var(--merma); }
+.bol__val--dorado{ fill:var(--dorado); }
+
+.bol__totlab{ font-family:var(--cuerpo); font-weight:600; font-size:16px; fill:var(--nieve); }
+.bol__totval{
+  font-family:var(--dato); font-weight:500; font-size:20px;
+  fill:var(--nieve); text-anchor:end;
+}
+.bol__totval--dorado{ fill:var(--dorado); }
+
+.bol__cierre-lab{
+  font-family:var(--dato); font-size:13.5px; letter-spacing:.16em;
+  fill:var(--bruma);
+}
+.bol__cierre-val{
+  font-family:var(--display); font-weight:600; font-size:42px;
+  fill:var(--dorado);
+}
+.bol__cierre-val--merma{ fill:var(--merma); }
+
+.bol__nota{ font-family:var(--cuerpo); font-size:15px; fill:var(--bruma); }
+.bol__barras{ stroke:var(--bruma); stroke-width:2.2; opacity:.28; }
+
+/* la diferencia, en números grandes */
+.diferencia{
+  background:var(--nivel); border:var(--borde); border-radius:var(--radio);
+  padding:clamp(1.5rem,3vw,2.2rem);
+  margin-bottom:clamp(2rem,4vw,3rem);
+}
+.diferencia__ojo{
+  font-family:var(--dato); font-size:.68rem; letter-spacing:.16em;
+  text-transform:uppercase; color:var(--bruma); margin:0 0 1.4rem;
+}
+.diferencia__lista{
+  list-style:none; margin:0; padding:0;
+  display:grid; gap:1.4rem 1.5rem;
+  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+}
+.diferencia__lista li{ display:flex; flex-direction:column; gap:.2rem; min-width:0; }
+.diferencia__lista strong{
+  font-family:var(--dato); font-weight:500; font-size:clamp(1.2rem,1rem + 1vw,1.6rem);
+  color:var(--nieve); line-height:1.1;
+}
+.diferencia__lista span{ font-size:.83rem; color:var(--bruma); }
+.diferencia__suma{
+  padding-left:1.5rem; border-left:2px solid var(--dorado);
+}
+.diferencia__suma strong{ color:var(--dorado); }
+
+.remate{
+  max-width:60ch; margin-inline:auto; text-align:center;
+  font-family:var(--display); font-size:clamp(1.1rem,1rem + .6vw,1.4rem);
+  line-height:1.45; color:var(--bruma);
+}
+.remate strong{ color:var(--nieve); font-weight:600; }
+
+/* ── las cabañas ─────────────────────────────────────────────────── */
+.rejilla-cabanas{
+  display:grid; gap:clamp(1.5rem,3vw,2rem);
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+}
+.rejilla-cabanas > *{ min-width:0; }
+.cabana{
+  background:var(--nivel); border:var(--borde); border-radius:var(--radio);
+  overflow:hidden;
+  display:flex; flex-direction:column;
+}
+.cabana--destacada{ background:var(--nivel-alto); border-color:color-mix(in srgb,var(--dorado) 45%,transparent); }
+/* la foto va al ras del borde de la tarjeta, sin marco propio */
+.cabana__foto{ border:0; border-radius:0; }
+.cabana__foto img{ aspect-ratio:16/11; }
+.cabana__cuerpo{ padding:1.4rem 1.4rem 1.6rem; display:flex; flex-direction:column; flex:1; }
+.cabana__nombre{ font-size:1.35rem; margin-bottom:.3rem; }
+.cabana__cupo{
+  font-family:var(--dato); font-size:.75rem; letter-spacing:.1em;
+  text-transform:uppercase; color:var(--dorado); margin-bottom:1rem;
+}
+.cabana__lista{
+  list-style:none; margin:0 0 1rem; padding:0;
+  display:grid; gap:.45rem; font-size:.92rem; color:var(--bruma);
+}
+.cabana__lista li{ padding-left:1.1rem; position:relative; }
+.cabana__lista li::before{
+  content:""; position:absolute; left:0; top:.62em;
+  width:.45rem; height:1px; background:var(--dorado);
+}
+.cabana__nota{
+  margin-top:auto; padding-top:.9rem; border-top:var(--borde);
+  font-size:.82rem; color:var(--dorado); font-style:italic;
+}
+
+/* ── aguas calientes y spa ───────────────────────────────────────
+   La sección que el negocio tiene y no muestra en ninguna parte: su
+   propio logo dice "aguas calientes & spa" y no había una sola línea
+   escrita sobre eso. Por eso va arriba, antes que las cabañas.      */
+.aguas__principal{
+  display:grid; gap:clamp(1.5rem,3vw,2.5rem);
+  align-items:center;
+  margin-bottom:clamp(2rem,4vw,3rem);
+}
+.aguas__principal > *{ min-width:0; }
+.aguas__texto h3{ font-size:clamp(1.4rem,1.1rem + 1vw,1.9rem); margin-bottom:.7rem; }
+.aguas__texto p{ color:var(--bruma); }
+.aguas__mosaico{
+  display:grid; gap:clamp(1rem,2vw,1.4rem);
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+}
+.aguas__mosaico > *{ min-width:0; }
+
+.lista-marca{
+  list-style:none; margin:1.2rem 0 0; padding:0;
+  display:grid; gap:.55rem; font-size:.94rem; color:var(--bruma);
+}
+.lista-marca li{ padding-left:1.5rem; position:relative; }
+.lista-marca li::before{
+  content:""; position:absolute; left:0; top:.5em;
+  width:.6rem; height:.6rem; border-radius:50%;
+  border:1.5px solid var(--dorado);
+}
+
+/* ── subtítulo dentro de una sección ─────────────────────────────── */
+.subtitulo{
+  font-family:var(--dato); font-weight:400;
+  font-size:.72rem; letter-spacing:.16em; text-transform:uppercase;
+  color:var(--bruma);
+  margin:clamp(2.5rem,5vw,3.5rem) 0 1.4rem;
+  padding-bottom:.7rem; border-bottom:1px solid var(--linea);
+}
+.rejilla-interior{
+  display:grid; gap:clamp(1rem,2vw,1.4rem);
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+}
+.rejilla-interior > *{ min-width:0; }
+
+/* ── entorno: la lista de lagos junto a la foto del recinto ──────── */
+.lagos__doble{ display:grid; gap:clamp(1.5rem,3vw,2.5rem); }
+.lagos__doble > *{ min-width:0; }
+
+/* ── hueco de foto ───────────────────────────────────────────────
+   No hay fotos de este negocio. El hueco explica cuál falta y para
+   qué sirve: en la reunión eso es una tarea concreta para el dueño,
+   no una caja gris.                                                */
+.hueco-foto{ display:flex; }
+.hueco-foto__marco{
+  flex:1; border:1.5px dashed var(--linea); border-radius:var(--radio);
+  padding:1.8rem 1.5rem; text-align:center;
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  gap:.6rem; background:color-mix(in srgb,var(--nivel) 55%,transparent);
+  min-height:220px;
+}
+.hueco-foto__marco svg{ width:44px; height:44px; color:var(--bruma); margin-bottom:.2rem; }
+.hueco-foto__marco p{ margin:0; }
+.hueco-foto__marco b{ font-family:var(--display); font-size:1.1rem; font-weight:600; }
+.hueco-foto__pie{ font-size:.86rem; color:var(--bruma); max-width:38ch; }
+
+/* ── tarifas ─────────────────────────────────────────────────────── */
+.tabla-marco{
+  background:var(--nivel); border:var(--borde); border-radius:var(--radio);
+  overflow:hidden; margin-bottom:clamp(2rem,4vw,2.8rem);
+}
+.tabla{ width:100%; border-collapse:collapse; text-align:left; }
+.tabla caption{ caption-side:bottom; }
+.tabla__pie{
+  padding:1rem 1.3rem 1.2rem; font-size:.82rem; color:var(--bruma);
+  text-align:left; border-top:var(--borde);
+}
+.tabla th,.tabla td{ padding:1rem 1.3rem; border-bottom:1px solid var(--linea); }
+.tabla thead th{
+  font-family:var(--dato); font-weight:400; font-size:.66rem;
+  letter-spacing:.14em; text-transform:uppercase; color:var(--bruma);
+  background:var(--hondo-2);
+}
+.tabla tbody th{
+  font-family:var(--display); font-weight:600; font-size:1.15rem; color:var(--nieve);
+}
+.tabla tbody td{ font-family:var(--dato); font-size:.95rem; color:var(--bruma); }
+.tabla tbody td b{ color:var(--dorado); font-weight:500; }
+.tabla tbody tr:last-child th,.tabla tbody tr:last-child td{ border-bottom:0; }
+
+.letra-chica{
+  display:grid; gap:.7rem;
+  max-width:70ch; font-size:.9rem; color:var(--bruma);
+}
+.letra-chica p{ margin:0; padding-left:1.2rem; position:relative; }
+.letra-chica p::before{
+  content:""; position:absolute; left:0; top:.62em;
+  width:.5rem; height:1px; background:var(--dorado);
+}
+.letra-chica b{ color:var(--nieve); font-weight:600; }
+
+/* ── qué incluye ─────────────────────────────────────────────────── */
+.rejilla-iconos{
+  list-style:none; margin:0; padding:0;
+  display:grid; gap:clamp(1.5rem,3vw,2.2rem);
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+}
+.rejilla-iconos > *{ min-width:0; }
+.ficha{
+  background:var(--nivel); border:var(--borde); border-radius:var(--radio);
+  padding:1.4rem 1.3rem 1.5rem;
+}
+.ficha__icono{ width:40px; height:40px; color:var(--dorado); margin-bottom:.7rem; }
+.ficha h3{ font-size:1.18rem; margin-bottom:.4rem; }
+.ficha p{ font-size:.92rem; color:var(--bruma); margin:0; }
+/* el ícono respira cuando el cursor entra a la ficha */
+.ficha__icono{ transition:transform .45s cubic-bezier(.22,.8,.3,1), color .3s ease; }
+.ficha:hover .ficha__icono{ transform:scale(1.12) rotate(-4deg); color:#E8C77F; }
+
+/* ── los siete lagos ─────────────────────────────────────────────── */
+.friso{ line-height:0; margin-bottom:clamp(2rem,4vw,3rem); border-radius:var(--radio); overflow:hidden; }
+.friso svg{ display:block; width:100%; height:clamp(70px,9vw,110px); }
+.friso__banda--7{ fill:var(--lago-7); }
+.friso__banda--6{ fill:var(--lago-6); }
+.friso__banda--5{ fill:var(--lago-5); }
+.friso__banda--4{ fill:var(--lago-4); }
+.friso__banda--3{ fill:var(--lago-3); }
+.friso__banda--2{ fill:var(--lago-2); }
+.friso__banda--1{ fill:var(--lago-1); }
+
+.siete{ list-style:none; margin:0; padding:0; display:grid; gap:0; }
+.siete__item{
+  display:grid; align-items:baseline;
+  grid-template-columns:auto 1fr auto;
+  gap:.2rem 1rem;
+  padding:1.1rem 0; border-bottom:1px solid var(--linea);
+  min-width:0;
+}
+.siete__item:last-child{ border-bottom:0; }
+.siete__num{
+  font-family:var(--dato); font-size:.75rem; color:var(--dorado);
+  grid-row:span 2;
+}
+.siete__nom{ font-family:var(--display); font-weight:600; font-size:1.25rem; }
+.siete__dist{
+  font-family:var(--dato); font-size:.85rem; color:var(--bruma);
+  white-space:nowrap; grid-row:span 2;
+}
+.siete__item p{
+  grid-column:2; margin:0; font-size:.92rem; color:var(--bruma);
+}
+
+/* ── cómo llegar ─────────────────────────────────────────────────── */
+.ruta{ list-style:none; margin:0 0 1.5rem; padding:0; display:grid; gap:0; }
+.ruta li{
+  display:grid; grid-template-columns:5.2rem 1fr; gap:1rem;
+  padding:1rem 0; border-bottom:1px solid var(--linea);
+  min-width:0;
+}
+.ruta li:last-child{ border-bottom:0; }
+.ruta__km{
+  font-family:var(--dato); font-size:.85rem; color:var(--dorado);
+  padding-top:.15rem;
+}
+.ruta p{ margin:0; font-size:.94rem; color:var(--bruma); }
+.ruta b{ color:var(--nieve); font-weight:600; }
+.llegar__nota{ font-size:.9rem; color:var(--bruma); max-width:56ch; }
+
+/* ── formulario ──────────────────────────────────────────────────── */
+.form{
+  display:grid; gap:1.1rem 1.2rem;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  background:var(--nivel); border:var(--borde); border-radius:var(--radio);
+  padding:clamp(1.4rem,3vw,2.2rem);
+  margin-bottom:1.6rem;
+}
+.campo{ display:flex; flex-direction:column; gap:.4rem; min-width:0; }
+.campo--ancho{ grid-column:1 / -1; }
+.campo label{ font-size:.82rem; font-weight:600; color:var(--bruma); }
+.campo__opc{ font-weight:400; color:var(--bruma); opacity:.8; }
+.campo input,.campo select,.campo textarea{
+  font-family:var(--cuerpo); font-size:1rem;
+  background:var(--hondo); color:var(--nieve);
+  border:1px solid var(--linea); border-radius:6px;
+  padding:.7rem .8rem; min-height:46px;
+  width:100%;
+}
+.campo textarea{ resize:vertical; min-height:88px; }
+.campo input::placeholder,.campo textarea::placeholder{ color:color-mix(in srgb,var(--bruma) 70%,transparent); }
+.campo input:hover,.campo select:hover,.campo textarea:hover{ border-color:var(--bruma); }
+
+.form__pie{
+  grid-column:1 / -1;
+  display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between;
+  gap:1rem; padding-top:.6rem; border-top:var(--borde);
+}
+.form__resumen{
+  margin:0; font-family:var(--dato); font-size:.85rem; color:var(--dorado);
+  flex:1 1 16rem; min-width:0;
+}
+.form__pie .boton{ min-height:46px; }
+
+.contacto{
+  display:grid; gap:1px; background:var(--linea);
+  border:var(--borde); border-radius:var(--radio); overflow:hidden;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+}
+.contacto__item{
+  background:var(--nivel); padding:1.1rem 1.2rem;
+  display:flex; flex-direction:column; gap:.25rem;
+  text-decoration:none; min-width:0; min-height:44px;
+}
+.contacto__item span{
+  font-family:var(--dato); font-size:.64rem; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--bruma);
+}
+.contacto__item strong{ font-weight:600; font-size:.98rem; }
+a.contacto__item:hover{ background:var(--nivel-alto); }
+a.contacto__item:hover strong{ color:var(--dorado); }
+/* la etiqueta "ejemplo" de la dirección cae dentro de una celda del
+   contacto, así que su fondo es el de la tarjeta, no el de la sección */
+.contacto__item.ej{ --fondo-local:var(--nivel); outline-offset:-8px; }
+.contacto__item.ej::after{ top:auto; bottom:6px; right:8px; transform:none; }
+
+/* ── la propuesta ────────────────────────────────────────────────── */
+.hablemos{
+  background:var(--lago-7); --fondo-local:var(--lago-7);
+  border-top:2px solid var(--dorado);
+  --amb:url("../imagenes/amb-piscina-noche.jpg");
+}
+.hablemos__titulo{
+  font-size:clamp(1.8rem,1.2rem + 2.4vw,3rem);
+  margin-bottom:clamp(2rem,4vw,3rem);
+}
+.hablemos__rejilla{
+  display:grid; gap:clamp(1.6rem,3vw,2.4rem);
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  margin-bottom:clamp(2.2rem,4vw,3rem);
+}
+.hablemos__rejilla > *{ min-width:0; }
+.hablemos__rejilla > div{
+  background:color-mix(in srgb,var(--nivel) 60%,transparent);
+  border:1px solid color-mix(in srgb,var(--nieve) 8%,transparent);
+  border-radius:var(--radio);
+  padding:1.5rem 1.4rem;
+}
+.hablemos__rejilla h3{
+  font-size:1.2rem; color:var(--dorado); margin-bottom:.6rem;
+}
+.hablemos__rejilla p{ font-size:.94rem; color:var(--bruma); margin:0; }
+.hablemos__rejilla strong,.hablemos__rejilla b{ color:var(--nieve); font-weight:600; }
+.hablemos__rejilla code{ font-family:var(--dato); font-size:.9em; color:var(--nieve); }
+.hablemos__rejilla a{ color:var(--dorado); text-underline-offset:3px; }
+.hablemos__acciones{ display:flex; flex-wrap:wrap; gap:.75rem; }
+
+/* ── pie ─────────────────────────────────────────────────────────── */
+.pie{ background:var(--hondo); padding:2.5rem 0; border-top:var(--borde); }
+.caja--pie{ display:grid; gap:.5rem; justify-items:start; }
+/* El logo del negocio, en su color rosa pálido original. No se recolorea
+   al dorado del sitio: es su marca, no un elemento de interfaz. */
+.pie__logo{ width:auto; height:clamp(64px,10vw,86px); margin-bottom:.9rem; }
+.pie__marca{ font-family:var(--display); font-weight:600; margin:0; }
+.pie__nota{ margin:0; font-size:.85rem; color:var(--bruma); max-width:66ch; }
+.pie__nota a{ color:var(--dorado); font-weight:600; }
+
+/* ── vida en los recuadros ───────────────────────────────────────
+   Tres cosas que pasan cuando el cursor entra a una tarjeta:
+
+   1. La tarjeta se despega unos pixeles. Se usa la propiedad
+      `translate` y NO `transform` a propósito: los reveals de scroll
+      ya ocupan `transform`, y como `translate` se compone aparte, los
+      dos efectos conviven sin pelearse por la especificidad.
+   2. El borde se enciende justo donde está el cursor. Es un
+      ::before de un pixel recortado con máscara, así que ilumina el
+      contorno y nunca se pone encima del texto — que es lo que
+      arruinaría el contraste. main.js le pasa la posición en --mx/--my;
+      sin script queda centrado, que también se ve bien.
+   3. El fondo sube un tono y la sombra crece.
+
+   Se usa ::before y no ::after porque ::after ya está tomado por la
+   etiqueta "ejemplo" en varias de estas mismas tarjetas.            */
+.cabana,
+.ficha,
+.diferencia,
+.tabla-marco,
+.form,
+.hueco-foto__marco,
+.hablemos__rejilla > div,
+.contacto__item{
+  position:relative;
+  transition:translate .4s cubic-bezier(.22,.8,.3,1),
+             background-color .35s ease,
+             border-color .35s ease,
+             box-shadow .4s ease;
+}
+
+.cabana:hover,
+.ficha:hover,
+.diferencia:hover,
+.tabla-marco:hover,
+.form:hover,
+.hueco-foto__marco:hover,
+.hablemos__rejilla > div:hover{
+  translate:0 -5px;
+  background-color:var(--nivel-alto);
+  border-color:color-mix(in srgb,var(--dorado) 30%,transparent);
+  box-shadow:0 20px 38px -22px rgba(0,0,0,.9);
+}
+.hueco-foto__marco:hover{ border-style:dashed; }
+
+/* El contacto es un mosaico de celdas separadas por una línea de un
+   pixel, dentro de un marco con overflow:hidden. Si una celda se
+   elevara, se recortaría contra el marco y rompería la retícula: acá
+   el realce es sólo de fondo y de borde encendido. */
+a.contacto__item:hover{ background-color:var(--nivel-alto); }
+
+@supports ((-webkit-mask-composite:xor) or (mask-composite:exclude)){
+  .cabana::before,
+  .ficha::before,
+  .diferencia::before,
+  .tabla-marco::before,
+  .form::before,
+  .hueco-foto__marco::before,
+  .hablemos__rejilla > div::before,
+  .contacto__item::before{
+    content:""; position:absolute; inset:0; border-radius:inherit;
+    padding:1px;
+    background:radial-gradient(220px circle at var(--mx,50%) var(--my,50%),
+               var(--dorado), transparent 62%);
+    -webkit-mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite:xor;
+            mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+            mask-composite:exclude;
+    opacity:0; transition:opacity .4s ease; pointer-events:none;
+  }
+  .cabana:hover::before,
+  .ficha:hover::before,
+  .diferencia:hover::before,
+  .tabla-marco:hover::before,
+  .form:hover::before,
+  .hueco-foto__marco:hover::before,
+  .hablemos__rejilla > div:hover::before,
+  a.contacto__item:hover::before{ opacity:1; }
+}
+
+/* Las boletas no llevan borde recortado: su papel es un zigzag, así que
+   un contorno rectangular se les vería encima. Se elevan y proyectan. */
+.boleta{ transition:translate .45s cubic-bezier(.22,.8,.3,1), filter .45s ease; }
+.boleta:hover{ translate:0 -6px; }
+.boleta--directo:hover{
+  filter:drop-shadow(0 16px 26px color-mix(in srgb,var(--dorado) 26%,transparent));
+}
+.boleta:not(.boleta--directo):hover{
+  filter:drop-shadow(0 16px 26px rgba(0,0,0,.55));
+}
+
+/* Las filas de los siete lagos no son tarjetas: se realzan corriéndose
+   un poco y encendiendo el número. */
+.siete__item{
+  transition:background-color .3s ease, padding-left .3s ease;
+  border-radius:8px;
+}
+.siete__item:hover{
+  background:color-mix(in srgb,var(--nivel) 70%,transparent);
+  padding-left:.8rem;
+}
+.siete__num,.siete__nom{ transition:color .3s ease; }
+.siete__item:hover .siete__nom{ color:var(--dorado); }
+
+/* Un brillo que barre el botón al pasar por encima. */
+.boton{ position:relative; overflow:hidden; isolation:isolate; }
+.boton::before{
+  content:""; position:absolute; inset:0; z-index:-1;
+  background:linear-gradient(105deg, transparent 35%,
+             color-mix(in srgb,var(--nieve) 30%,transparent) 50%, transparent 65%);
+  translate:-120% 0;
+  transition:translate .6s cubic-bezier(.22,.8,.3,1);
+}
+.boton:hover::before{ translate:120% 0; }
+.boton--linea:hover{ background:color-mix(in srgb,var(--dorado) 8%,transparent); }
+
+/* ── movimiento ──────────────────────────────────────────────────
+   Dos mecanismos distintos, y la diferencia importa:
+
+   · La PORTADA entra con @keyframes al cargar. No pasa por el
+     IntersectionObserver a propósito. Un observer que no dispare —
+     por la razón que sea — dejaría el primer pantallazo en blanco,
+     y ese es el único error que un sitio comercial no puede cometer.
+   · De la portada hacia abajo sí manda el observer, porque ahí el
+     disparo depende del scroll de verdad.
+
+   Los estados ocultos cuelgan de .js: si el script del <head> no
+   corre, la página se ve entera, sólo que quieta.                  */
+
+@keyframes entrar{
+  from{ opacity:0; transform:translateY(20px); }
+  to  { opacity:1; transform:none; }
+}
+
+/* Sin clase intermedia y sin JavaScript: la animación arranca sola en
+   cuanto el navegador aplica esta hoja. Si esperara a que main.js
+   pusiera una clase dentro de requestAnimationFrame, se colgaría
+   entera al abrir el enlace en una pestaña de fondo — Chrome no corre
+   rAF en pestañas ocultas — y el dueño vería la portada en blanco. */
+.js .portada__titulo,
+.js .portada__bajada,
+.js .portada__acciones,
+.js .credenciales,
+.js .portada__figura{
+  animation:entrar .75s cubic-bezier(.22,.8,.3,1) both;
+}
+.js .portada__titulo   { animation-delay:.04s; }
+.js .portada__bajada   { animation-delay:.16s; }
+.js .portada__acciones { animation-delay:.26s; }
+.js .credenciales      { animation-delay:.36s; }
+.js .portada__figura   { animation-delay:.12s; }
+
+/* La entrada al hacer scroll no es sólo un desplazamiento: la pieza
+   llega desde abajo, un punto más chica y desenfocada, y se asienta.
+   El desenfoque dura poco a propósito — media página con filter:blur
+   activo se le nota al ventilador de un notebook viejo. */
+.js .revelar{
+  opacity:0;
+  transform:translateY(26px) scale(.985);
+  filter:blur(6px);
+}
+.js .revelar.visible{
+  opacity:1; transform:none; filter:blur(0);
+  transition:opacity .65s ease,
+             transform .8s cubic-bezier(.22,.9,.28,1),
+             filter .5s ease;
+}
+.js .revelar.visible.retardo-1{ transition-delay:.07s; }
+.js .revelar.visible.retardo-2{ transition-delay:.14s; }
+.js .revelar.visible.retardo-3{ transition-delay:.21s; }
+.js .revelar.visible.retardo-4{ transition-delay:.28s; }
+.js .revelar.visible.retardo-5{ transition-delay:.35s; }
+.js .revelar.visible.retardo-6{ transition-delay:.42s; }
+
+/* Las bandas de agua respiran: cada lago con su propio compás, de dos
+   pixeles de amplitud. Es lo único del sitio que se mueve solo, así
+   que es lo primero que se apaga más abajo. */
+@keyframes respirar{
+  from{ transform:translateY(0); }
+  to  { transform:translateY(-2.5px); }
+}
+/* Sin will-change: una animación infinita de transform ya la promociona
+   el navegador solo, y declararlo en catorce elementos a la vez sólo
+   reserva memoria de GPU para nada. */
+.friso__banda,
+.horizonte__agua{
+  animation:respirar 7s ease-in-out infinite alternate;
+}
+.friso__banda--2,.horizonte__agua--2{ animation-duration:8s;   animation-delay:-.6s; }
+.friso__banda--3,.horizonte__agua--3{ animation-duration:6.4s; animation-delay:-1.2s; }
+.friso__banda--4,.horizonte__agua--4{ animation-duration:9s;   animation-delay:-1.8s; }
+.friso__banda--5,.horizonte__agua--5{ animation-duration:7.6s; animation-delay:-2.4s; }
+.friso__banda--6,.horizonte__agua--6{ animation-duration:8.6s; animation-delay:-3s; }
+.friso__banda--7,.horizonte__agua--7{ animation-duration:6.8s; animation-delay:-3.6s; }
+
+@media (prefers-reduced-motion: reduce){
+  /* Se apaga lo que se mueve solo: el agua que respira y el barrido de
+     los botones. Los fundidos, la elevación de las tarjetas y el borde
+     que se enciende se dejan — apagarlos deja el sitio con cara de
+     muerto, y en Windows esta preferencia viene activada de fábrica en
+     muchas máquinas. */
+  html{ scroll-behavior:auto; }
+  .friso__banda,.horizonte__agua{ animation:none; }
+  .boton::before{ display:none; }
+  .cabecera__avance{ animation:none; }
+  .js .revelar{ transform:none; filter:none; }
+  .js .revelar.visible{ transition-duration:.3s; }
+  .js .portada__titulo,
+  .js .portada__bajada,
+  .js .portada__acciones,
+  .js .credenciales,
+  .js .portada__figura{ animation-duration:.3s; animation-delay:0s; }
+  .boton:hover{ transform:none; }
+  .marca:hover .marca__pavo{ transform:none; }
+  .foto:hover img{ transform:none; }
+}
+
+/* ── de 900 px para arriba ───────────────────────────────────────── */
+@media (min-width:900px){
+  .boletas{ grid-template-columns:1fr 1fr; }
+  .caja--doble{ grid-template-columns:1.15fr .85fr; align-items:start; }
+  /* La portada se abre en dos: el texto a la izquierda sobre fondo sólido
+     —ahí el contraste está garantizado— y la foto a la derecha. Nada de
+     texto encima de la fotografía: con una aérea llena de follaje claro y
+     oscuro no hay velo que asegure 4,5:1 en todos los puntos. */
+  .portada__caja{ grid-template-columns:1.05fr .95fr; align-items:center; }
+  .portada__figura img{ aspect-ratio:4/5; }
+  .aguas__principal{ grid-template-columns:.85fr 1.15fr; }
+  .aguas__principal .foto--alta{ order:-1; }
+  .lagos__doble{ grid-template-columns:1.35fr .65fr; align-items:start; }
+  /* Cuatro bloques en tres columnas dejaban el último colgando solo.
+     A esta altura se leen mejor en dos por dos. */
+  .hablemos__rejilla{ grid-template-columns:1fr 1fr; }
+  /* Tres cabañas caben en la fila; el hueco de foto no puede quedar
+     como una cuarta tarjeta huérfana a un tercio de ancho. */
+  .rejilla-cabanas .hueco-foto{ grid-column:1 / -1; }
+  .rejilla-cabanas .hueco-foto__marco{ min-height:180px; }
+  .siete{ grid-template-columns:1fr 1fr; column-gap:3rem; }
+  .siete__item:nth-last-child(2){ border-bottom:0; }
+}
+
+/* ── tabla en pantalla chica ─────────────────────────────────────
+   Debajo de 700 px la tabla se convierte en tarjetas apiladas. Se
+   mantiene como <table> en el HTML —es una tabla de verdad y el
+   lector de pantalla debe leerla así—; sólo cambia cómo se ve.     */
+@media (max-width:700px){
+  .tabla thead{
+    position:absolute; width:1px; height:1px; overflow:hidden;
+    clip-path:inset(50%); white-space:nowrap;
+  }
+  .tabla,.tabla tbody,.tabla tr,.tabla th,.tabla td{ display:block; width:100%; }
+  .tabla tbody tr{ padding:1.1rem 1.2rem; border-bottom:1px solid var(--linea); }
+  .tabla tbody tr:last-child{ border-bottom:0; }
+  .tabla tbody th{ padding:0 0 .6rem; border-bottom:0; }
+  .tabla tbody td{
+    padding:.3rem 0; border-bottom:0;
+    display:flex; justify-content:space-between; gap:1rem;
+  }
+  .tabla tbody td::before{
+    content:attr(data-col);
+    font-family:var(--dato); font-size:.66rem; letter-spacing:.12em;
+    text-transform:uppercase; color:var(--bruma);
+    align-self:center;
+  }
+}
+
+/* ── móvil ───────────────────────────────────────────────────────── */
+@media (max-width:640px){
+  /* La isla pasa a dos filas y el menú se desliza de lado dentro de
+     ella. Nunca se esconde el menú dejando sólo el CTA: en un teléfono
+     —que es donde se va a abrir este enlace— eso deja a la gente sin
+     manera de llegar a Tarifas. */
+  .cabecera{ padding-block:.5rem; }
+  .cabecera__caja{
+    flex-wrap:wrap; gap:.2rem;
+    padding:.5rem .9rem .35rem;
+    border-radius:16px;
+  }
+  .marca{ flex:1 1 auto; }
+  .nav{
+    flex:1 0 100%;
+    flex-wrap:nowrap;
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:none;
+    /* sangra hasta el borde interno de la isla, para que el primer y
+       el último enlace no queden pegados al canto al deslizar */
+    margin-inline:-.9rem;
+    padding:.1rem .9rem .35rem;
+  }
+  .nav::-webkit-scrollbar{ display:none; }
+  /* 44 px es el mínimo que un dedo acierta sin pelear. Con el padding
+     de escritorio estos enlaces quedaban en 38. */
+  .nav a{ flex:none; white-space:nowrap; padding:.72rem .8rem; }
+  /* la pastilla se calcula con offsetLeft dentro de un contenedor que
+     además se desplaza: en el teléfono no aporta y puede desfasarse */
+  .nav__pastilla{ display:none; }
+  .cabecera__avance{ left:.9rem; right:.9rem; }
+
+  .seccion{ scroll-margin-top:9.5rem; }
+  .credenciales{ gap:1.4rem 2rem; }
+  .portada__acciones .boton{ flex:1 1 100%; }
+  .form__pie .boton{ flex:1 1 100%; }
+  .ej{ outline-offset:6px; }
+  .ej::after{ top:-6px; right:-6px; }
+  .diferencia__suma{ padding-left:0; padding-top:1rem; border-left:0; border-top:2px solid var(--dorado); }
+}

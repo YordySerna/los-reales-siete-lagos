@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="es-CL">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Los Reales de los Siete Lagos — Aguas calientes y cabañas en Licán Ray</title>
+
+<meta name="description" content="Cabañas con piscina temperada techada y sauna en Licán Ray, camino a Coñaripe km 1, Región de La Araucanía. Agua caliente todo el año. Reserva directa por WhatsApp, sin intermediarios.">
+<meta name="theme-color" content="#0D1B24">
+<meta name="robots" content="noindex, nofollow">
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_CL">
+<meta property="og:title" content="Los Reales de los Siete Lagos — Licán Ray">
+<meta property="og:description" content="Cabañas con piscina temperada techada y sauna, a un kilómetro de Licán Ray. Agua caliente todo el año.">
+<meta property="og:image" content="imagenes/piscina-termal-techada.jpg">
+
+<!-- Marca dibujada, sin archivo aparte: evita el 404 de /favicon.ico. -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Crect%20width='32'%20height='32'%20rx='6'%20fill='%230D1B24'/%3E%3Cg%20stroke='%23D8B463'%20stroke-width='2.2'%20stroke-linecap='round'%20fill='none'%3E%3Cpath%20d='M6%2011h20'/%3E%3Cpath%20d='M8%2016h16'/%3E%3Cpath%20d='M10%2021h12'/%3E%3Cpath%20d='M13%2026h6'/%3E%3C/g%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Public+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap">
+
+<link rel="stylesheet" href="css/estilo.css">
+
+<!-- Va acá arriba y SIN defer a propósito: todos los estados ocultos previos
+     a animar cuelgan de .js en el CSS. Si esta línea no corre, la página se ve
+     completa, sólo que quieta.
+     El temporizador es el rescate por si main.js nunca llega: a los 4 s suelta
+     la clase y todo aparece. main.js lo cancela apenas carga — si no lo
+     cancelara, a los 4 s se apagarían las animaciones a media página. -->
+<script>document.documentElement.classList.add('js');
+window.rescateJS = setTimeout(function(){document.documentElement.classList.remove('js');},4000);</script>
+</head>
+<body>
+
+<!-- ══ Banda de propuesta ══ Se borra al entregar el sitio al cliente ══ -->
+<aside class="propuesta" aria-label="Nota sobre esta propuesta">
+  <div class="propuesta__cinta">
+    <span class="propuesta__marca">Propuesta de sitio web</span>
+    <p class="propuesta__txt">
+      Preparada para <strong>Los Reales de los Siete Lagos</strong> por Yordy Serna.
+      Su dominio <code>centroturisticolosreales.cl</code> sigue apareciendo en
+      Google, pero ya no lleva a ninguna parte.
+    </p>
+    <a class="propuesta__link" href="#hablemos">Ver propuesta</a>
+  </div>
+</aside>
+
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+
+<header class="cabecera">
+  <div class="cabecera__caja">
+    <a class="marca" href="#inicio">
+      <img class="marca__pavo" src="imagenes/pavo-real.png" alt="" width="146" height="306" decoding="async">
+      <span class="marca__txt">Los Reales<small>Aguas calientes &amp; spa · Licán Ray</small></span>
+    </a>
+    <nav class="nav" aria-label="Secciones">
+      <!-- La pastilla la mueve main.js hasta el enlace de la sección que
+           esté en pantalla. Es decorativa: si el script no carga, no se
+           dibuja y el enlace activo se sigue marcando en dorado. -->
+      <span class="nav__pastilla" aria-hidden="true"></span>
+      <a href="#aguas">Aguas calientes</a>
+      <a href="#cuenta">La cuenta clara</a>
+      <a href="#cabanas">Las cabañas</a>
+      <a href="#tarifas">Tarifas</a>
+      <a href="#llegar">Cómo llegar</a>
+      <a class="nav__cta" href="#reservar">Reservar</a>
+    </nav>
+    <!-- Avance de lectura, con animation-timeline: scroll() — sin una
+         sola línea de JavaScript. Donde no está soportado, no se dibuja. -->
+    <span class="cabecera__avance" aria-hidden="true"></span>
+  </div>
+</header>
+
+<main id="contenido">
+
+<!-- ═══════════════════ 1 · PORTADA ═══════════════════ -->
+<section class="portada" id="inicio" aria-label="Presentación">
+  <div class="portada__caja">
+
+    <div class="portada__texto">
+      <p class="ojo">Cabañas, piscina temperada y sauna · Licán Ray, Araucanía</p>
+
+      <h1 class="portada__titulo">
+        El agua está caliente,<br>
+        aunque afuera esté helando.
+      </h1>
+
+      <p class="portada__bajada">
+        Somos un centro turístico a un kilómetro de Licán Ray, camino a
+        Coñaripe: cabañas de madera entre árboles, piscina temperada bajo techo
+        que anda todo el año y un sauna de barril a leña. Se reserva directo con
+        nosotros, por WhatsApp, sin nadie en el medio.
+      </p>
+
+      <div class="portada__acciones">
+        <a class="boton boton--dorado" href="#reservar">Reservar directo</a>
+        <a class="boton boton--linea" href="#aguas">Ver las aguas calientes</a>
+      </div>
+
+      <dl class="credenciales">
+        <div class="credenciales__item">
+          <dt>Calificación en Google</dt>
+          <dd><strong>4,9</strong><span>271 reseñas</span></dd>
+        </div>
+        <div class="credenciales__item">
+          <dt>Piscina temperada</dt>
+          <dd><strong>Techada</strong><span>abierta todo el año</span></dd>
+        </div>
+        <div class="credenciales__item">
+          <dt>Reservas</dt>
+          <dd><strong>Directas</strong><span>sin portal de por medio</span></dd>
+        </div>
+      </dl>
+    </div>
+
+    <figure class="portada__figura">
+      <img src="imagenes/aerea-complejo.jpg"
+           alt="Vista aérea del centro turístico: la piscina con su cascada al centro, rodeada de cabañas de madera y árboles."
+           width="1200" height="633" fetchpriority="high" decoding="async">
+      <figcaption>El recinto completo, visto desde arriba</figcaption>
+    </figure>
+
+  </div>
+
+  <!-- Horizonte de los siete lagos: dibujado. Cada banda es uno de los siete
+       lagos, del más cercano al más lejano. Es el motivo de marca del sitio y
+       vuelve como friso en la sección "Los siete lagos". -->
+  <div class="horizonte" aria-hidden="true">
+    <svg viewBox="0 0 1200 260" preserveAspectRatio="none" focusable="false">
+      <path class="horizonte__cielo" d="M0,0 H1200 V150 H0 Z"/>
+      <path class="horizonte__cordon" d="M0,150 L120,104 L210,132 L330,72 L430,118 L520,96 L640,140 L1200,140 V260 H0 Z"/>
+      <path class="horizonte__volcan" d="M640,140 L742,44 L760,44 L868,140 Z"/>
+      <path class="horizonte__nieve" d="M742,44 L760,44 L790,72 L772,66 L756,78 L738,64 L716,72 Z"/>
+      <path class="horizonte__agua horizonte__agua--7" d="M0,152 C200,144 380,162 600,152 C820,142 1000,162 1200,152 V260 H0 Z"/>
+      <path class="horizonte__agua horizonte__agua--6" d="M0,168 C220,158 400,176 620,166 C840,156 1010,176 1200,166 V260 H0 Z"/>
+      <path class="horizonte__agua horizonte__agua--5" d="M0,184 C180,176 400,192 610,182 C820,172 1020,190 1200,182 V260 H0 Z"/>
+      <path class="horizonte__agua horizonte__agua--4" d="M0,200 C240,190 420,208 640,198 C860,188 1030,206 1200,198 V260 H0 Z"/>
+      <path class="horizonte__agua horizonte__agua--3" d="M0,216 C200,208 400,224 600,214 C800,204 1020,222 1200,214 V260 H0 Z"/>
+      <path class="horizonte__agua horizonte__agua--2" d="M0,232 C220,224 420,240 640,230 C860,220 1030,238 1200,230 V260 H0 Z"/>
+      <path class="horizonte__agua horizonte__agua--1" d="M0,246 C200,240 400,254 600,246 C800,238 1010,252 1200,246 V260 H0 Z"/>
+    </svg>
+  </div>
+</section>
+
+<!-- ═══════════════════ 2 · AGUAS CALIENTES Y SPA ═══════════════════ -->
+<section class="seccion aguas" id="aguas" aria-labelledby="t-aguas">
+  <div class="caja">
+
+    <div class="titular">
+      <p class="ojo">Aguas calientes &amp; spa</p>
+      <h2 id="t-aguas">Lo que casi ningún alojamiento del lago tiene</h2>
+      <p class="titular__bajada">
+        Un camping cierra en marzo. Una cabaña sin agua caliente se arrienda tres
+        meses al año. Acá el agua anda en julio igual que en enero, y por eso se
+        puede venir a Licán Ray en invierno.
+      </p>
+    </div>
+
+    <div class="aguas__principal">
+      <figure class="foto foto--alta">
+        <img src="imagenes/piscina-termal-techada.jpg"
+             alt="Piscina temperada bajo un techo de vigas de madera, con vapor sobre el agua iluminada de azul y gente bañándose de noche."
+             width="765" height="1020" loading="lazy" decoding="async">
+      </figure>
+
+      <div class="aguas__texto">
+        <h3>La piscina techada</h3>
+        <p>
+          Cubierta con vigas de madera y abierta a los lados: se entra al agua
+          con el vapor subiendo y el bosque ahí mismo. No hay que esperar que
+          salga el sol ni que pare la lluvia.
+        </p>
+        <ul class="lista-marca ej" data-ejemplo>
+          <li>Temperada entre 32 y 34 °C todo el año</li>
+          <li>Abierta de 10:00 a 22:00 para los huéspedes</li>
+          <li>Sector de menor profundidad para niños</li>
+          <li>Sin costo adicional para quien se aloja</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="aguas__mosaico">
+      <figure class="foto">
+        <img src="imagenes/piscina-noche.jpg"
+             alt="La piscina exterior iluminada de noche, con tumbonas de madera alrededor y el jardín encendido."
+             width="1024" height="576" loading="lazy" decoding="async">
+        <figcaption>La piscina exterior, de noche</figcaption>
+      </figure>
+      <figure class="foto">
+        <img src="imagenes/sauna-barril.jpg"
+             alt="Sauna con forma de barril de madera y chimenea metálica, sobre el pasto entre los árboles."
+             width="850" height="850" loading="lazy" decoding="async">
+        <figcaption>Sauna de barril, a leña</figcaption>
+      </figure>
+      <figure class="foto">
+        <img src="imagenes/piscina-atardecer.jpg"
+             alt="La piscina exterior al atardecer, con el sol entre los árboles y las tumbonas en la terraza de madera."
+             width="1000" height="720" loading="lazy" decoding="async">
+        <figcaption>La misma piscina en verano</figcaption>
+      </figure>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════ 3 · LA CUENTA CLARA (pieza firma) ═══════════════════ -->
+<section class="seccion cuenta" id="cuenta" aria-labelledby="t-cuenta">
+  <div class="caja">
+
+    <div class="titular">
+      <p class="ojo">La cuenta clara</p>
+      <h2 id="t-cuenta">La misma cabaña, la misma noche,<br>dos maneras de reservarla</h2>
+      <p class="titular__bajada">
+        Hoy se nos encuentra en Trivago, en Tripadvisor y en Hotels.com. Ahí
+        estamos y ahí seguimos contestando. Pero la cuenta no da lo mismo, y
+        preferimos mostrarla entera antes que esconderla.
+      </p>
+    </div>
+
+    <div class="boletas ej" data-ejemplo>
+
+      <!-- ── Boleta 1 · por un portal ── -->
+      <figure class="boleta">
+        <svg viewBox="0 0 400 640" role="img" aria-labelledby="bol1-t bol1-d">
+          <title id="bol1-t">Desglose de una reserva hecha por un portal</title>
+          <desc id="bol1-d">Cabaña para cuatro personas, una noche de enero. Precio publicado 82.000 pesos, comisión del portal del 18 por ciento equivalente a 14.760 pesos, sin descuento para el huésped. El huésped paga 82.000 pesos y al negocio le quedan 67.240 pesos.</desc>
+
+          <path class="bol__papel" d="M0,16 l12.5,-10 l12.5,10 l12.5,-10 l12.5,10 l12.5,-10 l12.5,10 l12.5,-10 l12.5,10 l12.5,-10 l12.5,10 l12.5,-10 l12.5,10 l12.5,-10 l12.5,10 l12.5,-10 l12.5,10 l12.5,-10 l12.5,10 l12.5,-10 l12.5,10 l12.5,-10 l12.5,10 l12.5,-10 l12.5,10 l12.5,-10 l12.5,10 l12.5,-10 l12.5,10 l12.5,-10 l12.5,10 l12.5,-10 l12.5,10 L400,624 l-12.5,10 l-12.5,-10 l-12.5,10 l-12.5,-10 l-12.5,10 l-12.5,-10 l-12.5,10 l-12.5,-10 l-12.5,10 l-12.5,-10 l-12.5,10 l-12.5,-10 l-12.5,10 l-12.5,-10 l-12.5,10 l-12.5,-10 l-12.5,10 l-12.5,-10 l-12.5,10 l-12.5,-10 l-12.5,10 l-12.5,-10 l-12.5,10 l-12.5,-10 l-12.5,10 l-12.5,-10 l-12.5,10 l-12.5,-10 l-12.5,10 l-12.5,-10 l-12.5,10 l-12.5,-10 Z"/>
+
+          <text class="bol__canal bol__canal--merma" x="28" y="60">CANAL 01</text>
+          <text class="bol__tit" x="28" y="98">Por un portal</text>
+          <text class="bol__sub" x="28" y="122">Trivago · Tripadvisor · Hotels.com</text>
+
+          <path class="bol__linea" d="M28,144 H372"/>
+          <text class="bol__ficha" x="28" y="172">CABAÑA 4 PERSONAS · 1 NOCHE DE ENERO</text>
+
+          <text class="bol__lab" x="28"  y="212">Precio publicado</text>
+          <text class="bol__val" x="372" y="212">$ 82.000</text>
+
+          <text class="bol__lab" x="28"  y="246">Comisión del portal (18 %)</text>
+          <text class="bol__val bol__val--merma" x="372" y="246">− $ 14.760</text>
+
+          <text class="bol__lab bol__lab--nulo" x="28"  y="280">Descuento al huésped</text>
+          <text class="bol__val bol__val--nulo" x="372" y="280">$ 0</text>
+
+          <path class="bol__corte" d="M28,306 H372"/>
+
+          <text class="bol__totlab" x="28"  y="340">Paga el huésped</text>
+          <text class="bol__totval" x="372" y="340">$ 82.000</text>
+
+          <path class="bol__linea" d="M28,366 H372"/>
+
+          <text class="bol__cierre-lab" x="28" y="404">LE QUEDA AL NEGOCIO</text>
+          <text class="bol__cierre-val bol__cierre-val--merma" x="28" y="452">$ 67.240</text>
+
+          <path class="bol__linea" d="M28,484 H372"/>
+
+          <text class="bol__nota" x="28" y="516">
+            <tspan x="28" dy="0">La comisión se descuenta antes de que el</tspan>
+            <tspan x="28" dy="20">dinero llegue. El huésped nunca la ve, y el</tspan>
+            <tspan x="28" dy="20">negocio no puede usarla para bajar el precio.</tspan>
+          </text>
+
+          <g class="bol__barras" aria-hidden="true">
+            <path d="M28,580 V612 M34,580 V612 M42,580 V612 M52,580 V612 M58,580 V612 M68,580 V612 M74,580 V612 M84,580 V612 M92,580 V612 M98,580 V612 M108,580 V612 M116,580 V612 M122,580 V612 M132,580 V612 M138,580 V612 M148,580 V612 M156,580 V612 M162,580 V612 M172,580 V612 M180,580 V612"/>
+          </g>
+        </svg>
+      </figure>
+
+      <!-- ── Boleta 2 · directo ── -->
+      <figure class="boleta boleta--directo">
+        <svg viewBox="0 0 400 640" role="img" aria-labelledby="bol2-t bol2-d">
+          <title id="bol2-t">Desglose de la misma reserva hecha directo por WhatsApp</title>
+          <desc id="bol2-d">La misma cabaña para cuatro personas y la misma noche de enero. Precio publicado 82.000 pesos, sin comisión, con un cinco por ciento de descuento al huésped equivalente a 4.100 pesos. El huésped paga 77.900 pesos y al negocio le quedan los mismos 77.900 pesos.</desc>
+
+          <path class="bol__papel bol__papel--directo" d="M0,16 l12.5,-10 l12.5,10 l12.5,-10 l12.5,10 l12.5,-10 l12.5,10 l12.5,-10 l12.5,10 l12.5,-10 l12.5,10 l12.5,-10 l12.5,10 l12.5,-10 l12.5,10 l12.5,-10 l12.5,10 l12.5,-10 l12.5,10 l12.5,-10 l12.5,10 l12.5,-10 l12.5,10 l12.5,-10 l12.5,10 l12.5,-10 l12.5,10 l12.5,-10 l12.5,10 l12.5,-10 l12.5,10 l12.5,-10 l12.5,10 L400,624 l-12.5,10 l-12.5,-10 l-12.5,10 l-12.5,-10 l-12.5,10 l-12.5,-10 l-12.5,10 l-12.5,-10 l-12.5,10 l-12.5,-10 l-12.5,10 l-12.5,-10 l-12.5,10 l-12.5,-10 l-12.5,10 l-12.5,-10 l-12.5,10 l-12.5,-10 l-12.5,10 l-12.5,-10 l-12.5,10 l-12.5,-10 l-12.5,10 l-12.5,-10 l-12.5,10 l-12.5,-10 l-12.5,10 l-12.5,-10 l-12.5,10 l-12.5,-10 l-12.5,10 l-12.5,-10 Z"/>
+
+          <text class="bol__canal" x="28" y="60">CANAL 02</text>
+          <text class="bol__tit" x="28" y="98">Directo por WhatsApp</text>
+          <text class="bol__sub" x="28" y="122">+56 9 5901 9124 · contesta el dueño</text>
+
+          <path class="bol__linea" d="M28,144 H372"/>
+          <text class="bol__ficha" x="28" y="172">CABAÑA 4 PERSONAS · 1 NOCHE DE ENERO</text>
+
+          <text class="bol__lab" x="28"  y="212">Precio publicado</text>
+          <text class="bol__val" x="372" y="212">$ 82.000</text>
+
+          <text class="bol__lab bol__lab--nulo" x="28"  y="246">Comisión</text>
+          <text class="bol__val bol__val--nulo" x="372" y="246">$ 0</text>
+
+          <text class="bol__lab" x="28"  y="280">Descuento al huésped (5 %)</text>
+          <text class="bol__val bol__val--dorado" x="372" y="280">− $ 4.100</text>
+
+          <path class="bol__corte" d="M28,306 H372"/>
+
+          <text class="bol__totlab" x="28"  y="340">Paga el huésped</text>
+          <text class="bol__totval bol__totval--dorado" x="372" y="340">$ 77.900</text>
+
+          <path class="bol__linea" d="M28,366 H372"/>
+
+          <text class="bol__cierre-lab" x="28" y="404">LE QUEDA AL NEGOCIO</text>
+          <text class="bol__cierre-val" x="28" y="452">$ 77.900</text>
+
+          <path class="bol__linea" d="M28,484 H372"/>
+
+          <text class="bol__nota" x="28" y="516">
+            <tspan x="28" dy="0">Sin intermediario, el precio se puede bajar</tspan>
+            <tspan x="28" dy="20">y aun así entra más dinero. El huésped paga</tspan>
+            <tspan x="28" dy="20">menos y el negocio recibe más. Los dos ganan.</tspan>
+          </text>
+
+          <g class="bol__barras" aria-hidden="true">
+            <path d="M28,580 V612 M34,580 V612 M42,580 V612 M52,580 V612 M58,580 V612 M68,580 V612 M74,580 V612 M84,580 V612 M92,580 V612 M98,580 V612 M108,580 V612 M116,580 V612 M122,580 V612 M132,580 V612 M138,580 V612 M148,580 V612 M156,580 V612 M162,580 V612 M172,580 V612 M180,580 V612"/>
+          </g>
+        </svg>
+      </figure>
+
+    </div>
+
+    <div class="diferencia ej" data-ejemplo>
+      <p class="diferencia__ojo">La diferencia, en una sola noche</p>
+      <ul class="diferencia__lista">
+        <li><strong>+ $10.660</strong><span>entran al negocio</span></li>
+        <li><strong>− $4.100</strong><span>paga el huésped</span></li>
+        <li><strong>60 noches</strong><span>de temporada alta</span></li>
+        <li class="diferencia__suma"><strong>$639.600</strong><span>que hoy no se quedan acá</span></li>
+      </ul>
+    </div>
+
+    <p class="remate">
+      Con <strong>4,9 estrellas y 271 opiniones</strong>, nuestros huéspedes no
+      necesitan que un portal se los presente. Ya nos encontraron. Lo único que
+      falta es un lugar propio donde reservar.
+    </p>
+
+  </div>
+</section>
+
+
+<!-- ═══════════════════ 4 · LAS CABAÑAS ═══════════════════ -->
+<section class="seccion cabanas" id="cabanas" aria-labelledby="t-cabanas">
+  <div class="caja">
+
+    <div class="titular">
+      <p class="ojo">Las cabañas</p>
+      <h2 id="t-cabanas">Madera por dentro y por fuera</h2>
+      <p class="titular__bajada">
+        Cabañas independientes entre los árboles, con estacionamiento en la
+        puerta. Todas con cocina equipada, baño privado, ropa de cama y estufa a
+        leña. Quien se aloja usa la piscina y el sauna sin pagar aparte.
+      </p>
+    </div>
+
+    <div class="rejilla-cabanas">
+
+      <article class="cabana">
+        <figure class="foto cabana__foto">
+          <img src="imagenes/dormitorio-matrimonial.jpg"
+               alt="Dormitorio con cama de dos plazas, revestimiento de madera y una puerta ventana que da al jardín."
+               width="1100" height="792" loading="lazy" decoding="async">
+        </figure>
+        <div class="cabana__cuerpo ej" data-ejemplo>
+          <h3 class="cabana__nombre">Cabaña Pullinque</h3>
+          <p class="cabana__cupo">2 personas · 1 dormitorio</p>
+          <ul class="cabana__lista">
+            <li>Cama de dos plazas</li>
+            <li>Cocina equipada y baño privado</li>
+            <li>Estufa a leña, leña incluida</li>
+            <li>Terraza chica con mesa</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="cabana cabana--destacada">
+        <figure class="foto cabana__foto">
+          <img src="imagenes/cabana-terraza.jpg"
+               alt="Cabaña de madera con techo de dos aguas y una terraza cubierta con mesa y sillas, rodeada de pasto y árboles."
+               width="1000" height="720" loading="lazy" decoding="async">
+        </figure>
+        <div class="cabana__cuerpo ej" data-ejemplo>
+          <h3 class="cabana__nombre">Cabaña Calafquén</h3>
+          <p class="cabana__cupo">4 personas · 2 dormitorios</p>
+          <ul class="cabana__lista">
+            <li>Una cama de dos plazas y dos de una</li>
+            <li>Living comedor con estufa a leña</li>
+            <li>Terraza cubierta con parrilla propia</li>
+            <li>La que más se repite entre quienes vuelven</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="cabana">
+        <figure class="foto cabana__foto">
+          <img src="imagenes/cabana-ventanal.jpg"
+               alt="Cabaña de dos aguas con un ventanal alto de piso a techo y una pérgola lateral, entre helechos y arbustos."
+               width="536" height="700" loading="lazy" decoding="async">
+        </figure>
+        <div class="cabana__cuerpo ej" data-ejemplo>
+          <h3 class="cabana__nombre">Cabaña Pirihueico</h3>
+          <p class="cabana__cupo">6 personas · 3 dormitorios</p>
+          <ul class="cabana__lista">
+            <li>Tres dormitorios, dos baños</li>
+            <li>Comedor para seis y cocina grande</li>
+            <li>Ventanal al bosque en el living</li>
+            <li>Estacionamiento para dos vehículos</li>
+          </ul>
+        </div>
+      </article>
+
+    </div>
+
+    <h3 class="subtitulo">Por dentro</h3>
+    <div class="rejilla-interior">
+      <figure class="foto">
+        <img src="imagenes/dormitorio-dos-camas.jpg"
+             alt="Dormitorio con dos camas de una plaza, muros de madera y una ventana entre los respaldos."
+             width="1100" height="734" loading="lazy" decoding="async">
+        <figcaption>Segundo dormitorio, dos camas de una plaza</figcaption>
+      </figure>
+      <figure class="foto">
+        <img src="imagenes/bano-ducha.jpg"
+             alt="Baño privado con ducha de mampara, lavamanos y muros de madera."
+             width="680" height="1020" loading="lazy" decoding="async">
+        <figcaption>Baño privado con ducha</figcaption>
+      </figure>
+      <div class="hueco-foto ej" data-ejemplo>
+        <div class="hueco-foto__marco">
+          <svg viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+            <rect x="6" y="10" width="36" height="28" rx="3" fill="none" stroke="currentColor" stroke-width="2"/>
+            <circle cx="17" cy="20" r="3.5" fill="none" stroke="currentColor" stroke-width="2"/>
+            <path d="M8 34l10-9 7 6 6-5 9 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+          </svg>
+          <p><b>Falta el living con la estufa prendida</b></p>
+          <p class="hueco-foto__pie">
+            De las fotos que hay no salió ninguna del living ni de la cocina, y
+            es justo la que la gente busca antes de escribir: quiere ver dónde
+            se va a sentar. Con esa foto la cabaña se arrienda sola.
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════ 5 · TARIFAS ═══════════════════ -->
+<section class="seccion tarifas" id="tarifas" aria-labelledby="t-tarifas">
+  <div class="caja">
+
+    <div class="titular">
+      <p class="ojo">Tarifas</p>
+      <h2 id="t-tarifas">El precio por cabaña, con piscina incluida</h2>
+      <p class="titular__bajada">
+        El valor es por noche y por cabaña completa, hasta su capacidad, e
+        incluye el uso de la piscina temperada. Estos son los mismos precios que
+        verá en cualquier portal: acá no suben, y reservando directo bajan.
+      </p>
+    </div>
+
+    <div class="tabla-marco ej" data-ejemplo>
+      <table class="tabla">
+        <caption class="tabla__pie">
+          Valores por noche, por cabaña completa. Temporada alta: 15 de diciembre
+          al 28 de febrero y Semana Santa. Temporada baja: el resto del año.
+        </caption>
+        <thead>
+          <tr>
+            <th scope="col">Cabaña</th>
+            <th scope="col">Capacidad</th>
+            <th scope="col">Temporada baja</th>
+            <th scope="col">Temporada alta</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Pullinque</th>
+            <td data-col="Capacidad">2 personas</td>
+            <td data-col="Temporada baja">$52.000</td>
+            <td data-col="Temporada alta"><b>$68.000</b></td>
+          </tr>
+          <tr>
+            <th scope="row">Calafquén</th>
+            <td data-col="Capacidad">4 personas</td>
+            <td data-col="Temporada baja">$64.000</td>
+            <td data-col="Temporada alta"><b>$82.000</b></td>
+          </tr>
+          <tr>
+            <th scope="row">Pirihueico</th>
+            <td data-col="Capacidad">6 personas</td>
+            <td data-col="Temporada baja">$75.000</td>
+            <td data-col="Temporada alta"><b>$92.000</b></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="letra-chica ej" data-ejemplo>
+      <p><b>Reservando directo</b> por WhatsApp se descuenta un 5 % del valor publicado.</p>
+      <p><b>La piscina temperada va incluida</b> para quien se aloja. El sauna se pide aparte, $15.000 la sesión.</p>
+      <p><b>Mínimo dos noches</b> en temporada alta y en fines de semana largos.</p>
+      <p><b>Niños hasta 5 años</b> no pagan y no ocupan cupo.</p>
+      <p><b>Entrada 15:00 · Salida 12:00.</b> Si la cabaña está libre, la salida se corre sin costo.</p>
+      <p><b>Abono del 30 %</b> para tomar la fecha; el resto se paga al llegar.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════ 6 · QUÉ INCLUYE ═══════════════════ -->
+<section class="seccion incluye" id="incluye" aria-labelledby="t-incluye">
+  <div class="caja">
+
+    <div class="titular">
+      <p class="ojo">Qué incluye</p>
+      <h2 id="t-incluye">Lo que ya está puesto cuando usted llega</h2>
+    </div>
+
+    <ul class="rejilla-iconos">
+
+      <li class="ficha">
+        <svg class="ficha__icono" viewBox="0 0 40 40" aria-hidden="true" focusable="false">
+          <path d="M5 26c3 0 3-3 6-3s3 3 6 3 3-3 6-3 3 3 6 3 3-3 5-3" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+          <path d="M5 33c3 0 3-3 6-3s3 3 6 3 3-3 6-3 3 3 6 3 3-3 5-3" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+          <path d="M12 22V9a3 3 0 0 1 6 0M24 22V9a3 3 0 0 1 6 0" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+          <path d="M12 15h6M24 15h6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+        </svg>
+        <h3>Piscina temperada techada</h3>
+        <p>Anda todo el año, con vapor y techo de madera. Incluida en la tarifa.</p>
+      </li>
+
+      <li class="ficha">
+        <svg class="ficha__icono" viewBox="0 0 40 40" aria-hidden="true" focusable="false">
+          <rect x="6" y="14" width="28" height="18" rx="9" fill="none" stroke="currentColor" stroke-width="2.2"/>
+          <path d="M15 14v18" fill="none" stroke="currentColor" stroke-width="2.2"/>
+          <path d="M25 14v18" fill="none" stroke="currentColor" stroke-width="2.2"/>
+          <path d="M28 14V8h3" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M20 6c0 2-2 2-2 4s2 2 2 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <h3>Sauna de barril a leña</h3>
+        <p>Un barril de madera con estufa propia, en el pasto y bajo los árboles.</p>
+      </li>
+
+      <li class="ficha">
+        <svg class="ficha__icono" viewBox="0 0 40 40" aria-hidden="true" focusable="false">
+          <path d="M8 32h24M12 32V20l8-7 8 7v12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/>
+          <path d="M17 32v-8h6v8" fill="none" stroke="currentColor" stroke-width="2.2"/>
+          <path d="M24 12V8h3v6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/>
+        </svg>
+        <h3>Estufa a leña y leña incluida</h3>
+        <p>En invierno la leña va incluida en la tarifa. Nadie llega a una cabaña fría.</p>
+      </li>
+
+      <li class="ficha">
+        <svg class="ficha__icono" viewBox="0 0 40 40" aria-hidden="true" focusable="false">
+          <rect x="8" y="12" width="24" height="18" rx="2" fill="none" stroke="currentColor" stroke-width="2.2"/>
+          <path d="M8 18h24" stroke="currentColor" stroke-width="2.2"/>
+          <circle cx="14" cy="24" r="2.4" fill="none" stroke="currentColor" stroke-width="2.2"/>
+          <path d="M22 24h6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+        </svg>
+        <h3>Cocina equipada de verdad</h3>
+        <p>Refrigerador, cocina, hervidor y loza para toda la capacidad de la cabaña.</p>
+      </li>
+
+      <li class="ficha">
+        <svg class="ficha__icono" viewBox="0 0 40 40" aria-hidden="true" focusable="false">
+          <path d="M6 28h28" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+          <path d="M10 28l2-9h16l2 9" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/>
+          <path d="M16 14c0-3 4-3 4-6M24 14c0-2 2-2 2-4" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+          <path d="M12 31l2 4M28 31l-2 4" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+        </svg>
+        <h3>Parrilla en la terraza</h3>
+        <p>Cada cabaña con su propia parrilla. No se comparte ni se pide turno.</p>
+      </li>
+
+      <li class="ficha">
+        <svg class="ficha__icono" viewBox="0 0 40 40" aria-hidden="true" focusable="false">
+          <path d="M8.5 11.3S13.5 9 20 9s11.5 2.3 11.5 2.3" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+          <path d="M12 17.5s3.4-1.8 8-1.8 8 1.8 8 1.8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+          <path d="M15.5 23.5s1.9-1.2 4.5-1.2 4.5 1.2 4.5 1.2" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+          <circle cx="20" cy="29.5" r="2.2" fill="currentColor"/>
+        </svg>
+        <h3>Wifi que aguanta</h3>
+        <p>Señal en todas las cabañas. Alcanza para trabajar, no sólo para WhatsApp.</p>
+      </li>
+
+    </ul>
+  </div>
+</section>
+
+<!-- ═══════════════════ 7 · LOS SIETE LAGOS ═══════════════════ -->
+<section class="seccion lagos" id="lagos" aria-labelledby="t-lagos">
+  <div class="caja">
+
+    <div class="titular">
+      <p class="ojo">El entorno</p>
+      <h2 id="t-lagos">Los siete lagos del nombre existen,<br>y están todos a la mano</h2>
+      <p class="titular__bajada">
+        Licán Ray está en la puerta de la región de los Siete Lagos. Desde acá
+        se sale en la mañana y se vuelve a dormir a la cabaña: no hay que
+        cambiar de alojamiento para conocerlos.
+      </p>
+    </div>
+
+    <div class="friso" aria-hidden="true">
+      <svg viewBox="0 0 1200 120" preserveAspectRatio="none" focusable="false">
+        <path class="friso__banda friso__banda--7" d="M0,8   C200,2   420,18  640,10  C860,2  1030,18 1200,10 V120 H0 Z"/>
+        <path class="friso__banda friso__banda--6" d="M0,24  C220,18  400,34  620,26  C840,18 1010,34 1200,26 V120 H0 Z"/>
+        <path class="friso__banda friso__banda--5" d="M0,40  C180,34  400,50  610,42  C820,34 1020,50 1200,42 V120 H0 Z"/>
+        <path class="friso__banda friso__banda--4" d="M0,56  C240,50  420,66  640,58  C860,50 1030,66 1200,58 V120 H0 Z"/>
+        <path class="friso__banda friso__banda--3" d="M0,72  C200,66  400,82  600,74  C800,66 1020,82 1200,74 V120 H0 Z"/>
+        <path class="friso__banda friso__banda--2" d="M0,88  C220,82  420,98  640,90  C860,82 1030,98 1200,90 V120 H0 Z"/>
+        <path class="friso__banda friso__banda--1" d="M0,104 C200,98  400,112 600,104 C800,96 1010,110 1200,104 V120 H0 Z"/>
+      </svg>
+    </div>
+
+    <div class="lagos__doble">
+      <ol class="siete ej" data-ejemplo>
+        <li class="siete__item">
+          <span class="siete__num">01</span>
+          <span class="siete__nom">Calafquén</span>
+          <span class="siete__dist">1 km</span>
+          <p>El de la puerta. Arena volcánica y la playa de Licán Ray a cinco minutos en auto.</p>
+        </li>
+        <li class="siete__item">
+          <span class="siete__num">02</span>
+          <span class="siete__nom">Pullinque</span>
+          <span class="siete__dist">24 km</span>
+          <p>Chico y quieto, rodeado de bosque. El que eligen los que van a pescar temprano.</p>
+        </li>
+        <li class="siete__item">
+          <span class="siete__num">03</span>
+          <span class="siete__nom">Pellaifa</span>
+          <span class="siete__dist">32 km</span>
+          <p>Camino a Coñaripe, con termas a los dos lados de la ruta. Buen paseo de un día.</p>
+        </li>
+        <li class="siete__item">
+          <span class="siete__num">04</span>
+          <span class="siete__nom">Panguipulli</span>
+          <span class="siete__dist">42 km</span>
+          <p>El más grande de los siete. Pueblo con feria, panadería y muelle para caminar.</p>
+        </li>
+        <li class="siete__item">
+          <span class="siete__num">05</span>
+          <span class="siete__nom">Neltume</span>
+          <span class="siete__dist">72 km</span>
+          <p>Ya en plena selva valdiviana. En el camino quedan los saltos del Huilo Huilo.</p>
+        </li>
+        <li class="siete__item">
+          <span class="siete__num">06</span>
+          <span class="siete__nom">Riñihue</span>
+          <span class="siete__dist">88 km</span>
+          <p>El más apartado del grupo, con la orilla casi sin construir. Un día entero.</p>
+        </li>
+        <li class="siete__item">
+          <span class="siete__num">07</span>
+          <span class="siete__nom">Pirihueico</span>
+          <span class="siete__dist">96 km</span>
+          <p>El del transbordador a Puerto Fuy y el paso a Argentina. El viaje largo del grupo.</p>
+        </li>
+      </ol>
+
+      <figure class="foto foto--alta">
+        <img src="imagenes/sendero-bosque.jpg"
+             alt="Sendero de tierra entre árboles altos dentro del recinto, con pasto y una bicicleta apoyada a un costado."
+             width="536" height="700" loading="lazy" decoding="async">
+        <figcaption>El recinto por dentro: se camina bajo los árboles</figcaption>
+      </figure>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════ 8 · CÓMO LLEGAR ═══════════════════ -->
+<section class="seccion llegar" id="llegar" aria-labelledby="t-llegar">
+  <div class="caja caja--doble">
+
+    <div>
+      <div class="titular titular--izq">
+        <p class="ojo">Cómo llegar</p>
+        <h2 id="t-llegar">Camino a Coñaripe km 1, Licán Ray</h2>
+      </div>
+
+      <ol class="ruta">
+        <li>
+          <span class="ruta__km">0 km</span>
+          <p><b>Villarrica.</b> Tome la Ruta S-95 hacia Licán Ray, pavimentada entera.</p>
+        </li>
+        <li>
+          <span class="ruta__km ej" data-ejemplo>26 km</span>
+          <p><b>Licán Ray.</b> Cruce el pueblo y tome la salida hacia Coñaripe.</p>
+        </li>
+        <li>
+          <span class="ruta__km">km 1</span>
+          <p><b>Los Reales, a mano derecha.</b> Un kilómetro después de salir de Licán Ray por el camino a Coñaripe. Ahí es.</p>
+        </li>
+      </ol>
+
+      <p class="llegar__nota">
+        Desde Temuco son unos 105 km y desde Loncoche 52, todo por camino
+        pavimentado. Hay buses desde Villarrica cada media hora en temporada; si
+        viene en bus, avísenos y lo pasamos a buscar al terminal de Licán Ray.
+      </p>
+
+      <div class="hueco-foto ej" data-ejemplo>
+        <div class="hueco-foto__marco">
+          <svg viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+            <path d="M24 5c-6.6 0-12 5.3-12 11.9C12 26 24 43 24 43s12-17 12-26.1C36 10.3 30.6 5 24 5z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+            <circle cx="24" cy="17" r="4.5" fill="none" stroke="currentColor" stroke-width="2"/>
+          </svg>
+          <p><b>Falta la foto del portón con el letrero</b></p>
+          <p class="hueco-foto__pie">
+            Tomada de día y de frente. Con eso el que llega a las once de la
+            noche no se pasa de largo ni llama tres veces para preguntar dónde
+            doblar.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <figure class="foto foto--alta">
+      <img src="imagenes/piscina-noche.jpg"
+           alt="La piscina exterior iluminada de noche, con el jardín y las cabañas al fondo."
+           width="1024" height="576" loading="lazy" decoding="async">
+      <figcaption>Lo que espera al final del camino</figcaption>
+    </figure>
+
+  </div>
+</section>
+
+<!-- ═══════════════════ 9 · RESERVA DIRECTA ═══════════════════ -->
+<section class="seccion reservar" id="reservar" aria-labelledby="t-reservar">
+  <div class="caja">
+
+    <div class="titular">
+      <p class="ojo">Reserva directa</p>
+      <h2 id="t-reservar">Escríbanos y le confirmamos la cabaña</h2>
+      <p class="titular__bajada">
+        Complete lo que sepa y el mensaje se arma solo. Se abre en su WhatsApp
+        para que usted lo revise antes de enviarlo. Contesta el dueño, no un
+        sistema.
+      </p>
+    </div>
+
+    <form class="form" id="form-reserva" novalidate>
+      <div class="campo">
+        <label for="f-nombre">Su nombre</label>
+        <input type="text" id="f-nombre" name="nombre" autocomplete="name" placeholder="Ej.: Marcela Ruiz">
+      </div>
+
+      <div class="campo">
+        <label for="f-cabana">Cabaña</label>
+        <select id="f-cabana" name="cabana">
+          <option value="">La que esté disponible</option>
+          <option>Pullinque · 2 personas</option>
+          <option>Calafquén · 4 personas</option>
+          <option>Pirihueico · 6 personas</option>
+        </select>
+      </div>
+
+      <div class="campo">
+        <label for="f-llegada">Llegada</label>
+        <input type="date" id="f-llegada" name="llegada">
+      </div>
+
+      <div class="campo">
+        <label for="f-salida">Salida</label>
+        <input type="date" id="f-salida" name="salida">
+      </div>
+
+      <div class="campo">
+        <label for="f-personas">Personas</label>
+        <input type="number" id="f-personas" name="personas" min="1" max="12" step="1" value="4" inputmode="numeric">
+      </div>
+
+      <div class="campo campo--ancho">
+        <label for="f-nota">Algo que debamos saber <span class="campo__opc">(opcional)</span></label>
+        <textarea id="f-nota" name="nota" rows="3" placeholder="Ej.: llegamos pasadas las 22:00 y queremos reservar el sauna"></textarea>
+      </div>
+
+      <div class="form__pie">
+        <p class="form__resumen" id="resumen" role="status" aria-live="polite">4 personas, sin fechas elegidas todavía.</p>
+        <button class="boton boton--dorado" type="submit">Abrir WhatsApp con el mensaje</button>
+      </div>
+    </form>
+
+    <div class="contacto">
+      <a class="contacto__item" href="https://wa.me/56959019124" rel="noopener">
+        <span>WhatsApp</span><strong>+56 9 5901 9124</strong>
+      </a>
+      <a class="contacto__item" href="tel:+56959019124">
+        <span>Teléfono</span><strong>+56 9 5901 9124</strong>
+      </a>
+      <div class="contacto__item">
+        <span>Dirección</span><strong>Camino a Coñaripe km 1, Licán Ray</strong>
+      </div>
+      <div class="contacto__item">
+        <span>Comuna</span><strong>Villarrica, Región de La Araucanía</strong>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════ 10 · LA PROPUESTA ═══════════════════ -->
+<section class="seccion hablemos" id="hablemos" aria-labelledby="t-hablemos">
+  <div class="caja">
+    <p class="ojo ojo--dorado">Para el dueño de Los Reales</p>
+    <h2 class="hablemos__titulo" id="t-hablemos">Esto no es una plantilla.<br>Es su negocio, con sus fotos y su cuenta hecha.</h2>
+
+    <div class="hablemos__rejilla">
+      <div>
+        <h3>Su dominio existe y no lleva a ninguna parte</h3>
+        <p>
+          <code>centroturisticolosreales.cl</code> sigue indexado en Google: la
+          gente lo ve en los resultados y hace clic. Pero el dominio ya no
+          resuelve, así que ese clic no llega a ningún lado. Lo revisé dos veces
+          el mismo día, en la mañana y en la tarde, para no venir a decirle algo
+          que fuera una caída pasajera. Está muerto de verdad. Y si alguna vez
+          lo pagó, quiere decir que usted ya sabía que lo necesitaba.
+        </p>
+      </div>
+      <div>
+        <h3>Su mejor argumento está escondido</h3>
+        <p>
+          Su propio logo dice <strong>«aguas calientes &amp; spa»</strong>, y
+          tiene una piscina temperada techada y un sauna de barril. Eso es lo que
+          lo separa de los otros treinta y siete alojamientos de la zona: casi
+          todos cierran en marzo, usted podría vender el invierno. En ninguna
+          parte de internet aparece eso escrito. Acá quedó puesto arriba de
+          todo, que es donde corresponde.
+        </p>
+      </div>
+      <div>
+        <h3>Mientras tanto, la venta pasa por otros</h3>
+        <p>
+          Hoy se los encuentra en Trivago, en Tripadvisor y en Hotels.com. Eso
+          da visibilidad, pero cada reserva que entra por ahí deja una comisión
+          en el camino — reservas que sus <strong>4,9 estrellas y 271
+          opiniones</strong> ya se ganaron solas. La sección
+          <a href="#cuenta">La cuenta clara</a> hace ese número con cifras de
+          ejemplo; con las suyas reales, el cálculo toma cinco minutos.
+        </p>
+      </div>
+      <div>
+        <h3>Lo que falta</h3>
+        <p>
+          Menos de lo que parece. Las fotos de esta página son <b>suyas</b>, las
+          mismas que ya circulan. Falta: <b>sus tarifas y sus cabañas reales</b>
+          —todo lo que tiene <span class="ej ej--inline">borde punteado</span>
+          es de ejemplo—, <b>una foto del living y otra del portón</b>, y
+          <b>decidir el dominio</b>: rescatar el que tiene o registrarlo de
+          nuevo. Tampoco tienen redes sociales registradas, así que el sitio
+          propio no sería un complemento: sería su única casa en internet.
+        </p>
+      </div>
+    </div>
+
+    <div class="hablemos__acciones">
+      <a class="boton boton--dorado" href="https://wa.me/56968650001?text=Hola%20Yordy%2C%20vi%20la%20propuesta%20para%20Los%20Reales%20de%20los%20Siete%20Lagos" rel="noopener">Hablar con Yordy</a>
+      <a class="boton boton--linea" href="https://yordyserna.github.io" rel="noopener">Ver otros trabajos</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="pie">
+  <div class="caja caja--pie">
+    <img class="pie__logo" src="imagenes/logo-los-reales.png"
+         alt="Los Reales de los Siete Lagos — aguas calientes y spa"
+         width="602" height="308" loading="lazy" decoding="async">
+    <p class="pie__marca">Camino a Coñaripe km 1 · Licán Ray, comuna de Villarrica, Región de La Araucanía</p>
+    <p class="pie__nota">
+      Propuesta de sitio web preparada por
+      <a href="https://yordyserna.github.io" rel="noopener">Yordy Serna</a>.
+      El nombre, el logo, las fotografías, el teléfono, la dirección, la
+      calificación de Google y los portales donde hoy aparecen son material y
+      datos del negocio; las tarifas, los nombres de las cabañas, las
+      capacidades, los horarios y las distancias son de ejemplo hasta
+      confirmarlos con ellos.
+    </p>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
