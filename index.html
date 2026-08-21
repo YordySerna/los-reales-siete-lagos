@@ -33,7 +33,12 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Public+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap">
 
-<link rel="stylesheet" href="css/estilo.css">
+<!-- El ?v= no es capricho: GitHub Pages sirve todo con Cache-Control:
+     max-age=600 y el navegador se queda con la hoja vieja aunque el HTML
+     ya sea el nuevo. Sin esto, el dueño abre el enlace por segunda vez y
+     ve la versión anterior. Se sube la fecha cada vez que cambia el CSS.
+     Es el mismo truco que ya usa el portafolio. -->
+<link rel="stylesheet" href="css/estilo.css?v=20260821b">
 
 <!-- Va acá arriba y SIN defer a propósito: todos los estados ocultos previos
      a animar cuelgan de .js en el CSS. Si esta línea no corre, la página se ve
@@ -901,6 +906,6 @@ window.rescateJS = setTimeout(function(){document.documentElement.classList.remo
   </div>
 </footer>
 
-<script src="js/main.js"></script>
+<script src="js/main.js?v=20260821b"></script>
 </body>
 </html>
