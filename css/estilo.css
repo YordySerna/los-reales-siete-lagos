@@ -4,32 +4,36 @@
 
    IDENTIDAD — de dónde sale y de qué se aparta
    ──────────────────────────────────────────────────────────────────
-   El nombre trae dos cosas y las dos mandan acá: "Los Reales" y
-   "Siete Lagos".
+   Papel, no pantalla. Blanco cálido y crema con la tinta casi negra,
+   y el negro pleno guardado para dos sitios: la barra de arriba y el
+   cierre de la propuesta. Ese salto —papel en casi todo, negro en los
+   extremos— es lo que le da el aire de impreso, y es también lo que
+   deja que el color lo pongan las fotos y no la interfaz.
 
-   · El color es el agua andina de tarde, no el celeste de agencia de
-     turismo: azules profundos, casi negros, que es como se ve un lago
-     de la zona con el cerro encima. Sobre eso, un dorado viejo y
-     apagado —de bronce de muelle, no de corona de clipart—: lo "real"
-     entendido como sobriedad. El único otro color es un ladrillo
-     desaturado, y sólo aparece donde hay una pérdida que mostrar.
-   · Los siete lagos son literalmente siete tonos de azul, del más
-     cercano (Calafquén, el de la puerta) al más lejano (Riñihue).
-     Vuelven tres veces: en la marca, en el horizonte de la portada y
-     en el friso de la sección del entorno.
+   La versión anterior era al revés: azules profundos de lago con
+   dorado, fondo oscuro. Se veía bien en escritorio y pesada en el
+   teléfono, que es donde se va a abrir este enlace.
 
-   El verde de la página NO es un color de la paleta: es el del bosque
-   de sus propias fotos, que se ve porque el velo del fondo está
-   bastante abierto. La paleta declarada sigue siendo azul y dorada, y
-   el verde entra por la fotografía. La diferencia importa para no
-   pisarse con Prado Verde.
+   · El acento sobre papel es un BRONCE oscuro, no un dorado claro: a
+     4,5:1 sobre crema, un dorado claro no llega ni de cerca. El dorado
+     claro existe igual, pero sólo vive sobre la barra negra.
+   · Los siete lagos siguen siendo siete azules, y sobre papel funcionan
+     mejor que antes: son bandas de color contra el crema, no tonos
+     apenas distinguibles entre sí sobre un fondo oscuro. Vuelven en el
+     horizonte de la portada y en el friso del entorno.
+   · El morado del logo del negocio entra como color de marca en el
+     pavo real y en el logo del pie. No es de la paleta: es suyo.
+
+   El verde de la página NO es un color declarado: es el del bosque de
+   sus propias fotos, que asoma porque el velo del fondo está abierto.
+   La diferencia importa para no pisarse con Prado Verde.
 
    Se aparta a propósito de sus demos hermanas:
-   Prado Verde es verde-hueso de prado sobre fondo CLARO con acento
-   naranjo brasa, y su pieza central es el plano del terreno. Acá el
-   fondo es oscuro, el verde es fotográfico y no hay plano. Los
-   Copihues llevará rojo copihue sobre bosque húmedo: tampoco hay rojo
-   acá.
+   Prado Verde es verde-hueso de prado con acento naranjo brasa, y su
+   pieza central es el plano del terreno. Las dos son claras ahora, pero
+   ninguna comparte color: acá el papel es neutro cálido, el acento es
+   bronce y el peso lo lleva el negro. Los Copihues llevará rojo copihue
+   sobre bosque húmedo: tampoco hay rojo acá.
 
    TIPOGRAFÍA — por qué este par
    ──────────────────────────────────────────────────────────────────
@@ -47,27 +51,31 @@
    ═══════════════════════════════════════════════════════════════════ */
 
 :root{
-  /* superficie — el lago de tarde, de la orilla al fondo */
-  --hondo:      #0D1B24;   /* el fondo del sitio */
-  --hondo-2:    #112330;   /* secciones alternas */
-  --nivel:      #16303D;   /* tarjetas y papel */
-  --nivel-alto: #1B3A48;   /* tarjeta destacada */
-  --linea:      #26404E;
+  /* superficie — papel, no pantalla
+     La página es clara: blanco cálido y crema, con la tinta casi negra.
+     El negro se guarda para dos sitios donde manda de verdad: la barra
+     de arriba y el cierre de la propuesta. Ese salto —papel casi todo,
+     negro en los extremos— es lo que le da el aire de impreso. */
+  --papel:  #FCFAF6;       /* el fondo del sitio */
+  --crema:  #F4EFE6;       /* secciones alternas */
+  --nata:   #FFFFFF;       /* tarjetas */
+  --nata-2: #FAF4E8;       /* tarjeta destacada y realce al pasar el cursor */
+  --linea:  #E4DCCC;
+  --noche:  #16150F;       /* la barra de arriba y el cierre */
 
-  /* tinta
-     Los dos secundarios se aclararon a propósito. El fondo de la página
-     dejó de ser un color plano: ahora son fotos del negocio con el velo
-     bastante abierto, y un fondo más vivo obliga a una tinta más clara.
-     Con los valores viejos —#A2B7C4 y #E08268— el velo no podía bajar
-     del 85 % sin que la etiqueta "ejemplo" cayera bajo 4,5:1, y a ese
-     velo no se veía el verde de las fotos, que es justo lo que se
-     buscaba. Aclarándolos, el velo puede abrirse hasta el 68 %. */
-  --nieve:  #EAF1F5;       /* la nieve del Villarrica: el texto */
-  --bruma:  #BDCED8;       /* texto secundario */
+  /* tinta */
+  --tinta:  #23211C;       /* texto */
+  --humo:   #5C574D;       /* texto secundario */
 
-  /* acentos */
-  --dorado:  #D8B463;      /* bronce viejo de muelle */
-  --merma:   #F2A48E;      /* ladrillo apagado: sólo donde hay pérdida */
+  /* acentos
+     Dos dorados y no uno: sobre papel, un dorado claro no llega a 4,5:1
+     ni de cerca —lo dice el propio encargo—, así que el que va sobre
+     claro es un bronce oscuro. El claro se guarda para la barra negra,
+     donde sí funciona. Medidos los dos. */
+  --bronce: #7A5C1C;       /* acento sobre papel: 5,9:1 */
+  --dorado-claro: #D8B463; /* acento sobre la barra negra: 9,3:1 */
+  --marca:  #4E4B67;       /* el morado del logo del negocio */
+  --merma:  #A63D22;       /* ladrillo: sólo donde hay una pérdida */
 
   /* los siete lagos, del más cercano al más lejano */
   --lago-1: #2E6E86;   /* Calafquén */
@@ -90,7 +98,7 @@
 
   /* fondo de la sección actual: lo usa la etiqueta "ejemplo" para
      recortar el borde punteado sin que se le note el parche */
-  --fondo-local: var(--hondo);
+  --fondo-local: var(--papel);
 }
 
 /* ── base ────────────────────────────────────────────────────────── */
@@ -101,15 +109,15 @@ html{
   /* Sin esta línea el navegador dibuja los controles nativos en claro:
      la barra de scroll sale blanca y el selector de fecha del
      formulario queda con fondo blanco y letra clara, ilegible. */
-  color-scheme:dark;
+  color-scheme:light;
   scroll-behavior:smooth;
   -webkit-text-size-adjust:100%;
 }
 
 body{
   margin:0;
-  background:var(--hondo);
-  color:var(--nieve);
+  background:var(--papel);
+  color:var(--tinta);
   font-family:var(--cuerpo);
   font-size:clamp(1rem, .96rem + .2vw, 1.075rem);
   line-height:1.62;
@@ -139,14 +147,14 @@ a,button,input,select,textarea,label,summary{ touch-action:manipulation; }
 img,svg{ max-width:100%; }
 
 :focus-visible{
-  outline:3px solid var(--dorado);
+  outline:3px solid var(--bronce);
   outline-offset:3px;
   border-radius:4px;
 }
 
 .saltar{
   position:absolute; left:-9999px; top:0; z-index:200;
-  background:var(--dorado); color:var(--hondo);
+  background:var(--noche); color:var(--papel);
   padding:.8rem 1.2rem; font-weight:700; text-decoration:none;
   border-radius:6px;
 }
@@ -159,10 +167,10 @@ img,svg{ max-width:100%; }
   font-size:.72rem;
   letter-spacing:.16em;
   text-transform:uppercase;
-  color:var(--bruma);
+  color:var(--humo);
   margin:0 0 1rem;
 }
-.ojo--dorado{ color:var(--dorado); }
+.ojo--dorado{ color:var(--bronce); }
 
 /* ── marcador de dato de ejemplo ─────────────────────────────────
    Todo lo que lleva .ej es relleno. Se ve a simple vista para poder
@@ -192,7 +200,7 @@ img,svg{ max-width:100%; }
 .ej--inline::after{ content:none; }
 
 /* ── banda de propuesta ──────────────────────────────────────────── */
-.propuesta{ background:var(--lago-4); color:var(--nieve); }
+.propuesta{ background:#0C0C08; color:var(--papel); }
 .propuesta__cinta{
   width:min(100% - 2.5rem, var(--ancho));
   margin-inline:auto;
@@ -203,69 +211,58 @@ img,svg{ max-width:100%; }
 .propuesta__marca{
   font-family:var(--dato); font-size:.68rem;
   letter-spacing:.14em; text-transform:uppercase;
-  color:var(--hondo); background:var(--dorado);
+  color:var(--noche); background:var(--dorado-claro);
   padding:.28rem .6rem; border-radius:3px;
   white-space:nowrap;
 }
-.propuesta__txt{ margin:0; flex:1 1 22rem; color:color-mix(in srgb,var(--nieve) 90%, transparent); }
-.propuesta__txt strong{ color:var(--nieve); }
-.propuesta__txt code{ font-family:var(--dato); font-size:.9em; color:var(--dorado); }
+.propuesta__txt{ margin:0; flex:1 1 22rem; color:color-mix(in srgb,var(--papel) 82%, transparent); }
+.propuesta__txt strong{ color:var(--papel); }
+.propuesta__txt code{ font-family:var(--dato); font-size:.9em; color:var(--dorado-claro); }
 .propuesta__link{
-  font-weight:600; color:var(--dorado);
+  font-weight:600; color:var(--dorado-claro);
   text-underline-offset:4px; white-space:nowrap;
   /* medido: sin esto quedaba en 22 px de alto y es lo primero que se
      toca en el teléfono */
   display:inline-flex; align-items:center; min-height:44px;
 }
 
-/* ── cabecera flotante ───────────────────────────────────────────
-   No es la barra pegada al borde de siempre: es una isla que flota
-   sobre el contenido, separada de los cuatro cantos, con el fondo
-   difuminado y su propia sombra. Al bajar se encoge y se opaca —esa
-   clase la pone main.js—, y si el script no llega se queda en el
-   estado suelto, que también se ve terminado.
+/* ── barra de arriba ─────────────────────────────────────────────
+   Negra y de borde a borde. La versión anterior era una isla flotante
+   con esquinas redondeadas y sombra; en el teléfono se partía en dos
+   filas, ocupaba 116 px y se veía como un cajón puesto encima de la
+   página. Ahora es una franja sólida, sin bordes ni sombra, que corta
+   el papel de un lado a otro: sobre una paleta clara ese contraste es
+   todo el efecto que hace falta.
 
-   Va con position:sticky y no fixed a propósito: sticky conserva su
-   hueco en el flujo, así la banda de propuesta de arriba no le queda
-   debajo ni hay que compensar con padding en el body.              */
+   Sigue en position:sticky y no fixed: sticky conserva su hueco en el
+   flujo, así la banda de propuesta no le queda debajo ni hay que
+   compensar con padding en el body.                                 */
 .cabecera{
   position:sticky; top:0; z-index:100;
-  padding:clamp(.55rem,1.4vw,.9rem) 0;
-  /* el contenedor deja pasar el cursor; sólo la isla lo recibe */
-  pointer-events:none;
+  background:var(--noche);
+  color:var(--papel);
+  transition:box-shadow .35s ease;
 }
+/* al despegar del tope se le nota el peso, nada más */
+.cabecera--pegada{ box-shadow:0 10px 30px -18px rgba(0,0,0,.55); }
 .cabecera__caja{
-  pointer-events:auto;
   position:relative;
-  width:min(100% - 2rem, var(--ancho));
+  width:min(100% - 2.5rem, var(--ancho));
   margin-inline:auto;
   display:flex; align-items:center; justify-content:space-between;
-  gap:1rem; padding:.55rem .55rem .55rem 1.1rem;
-  border-radius:18px;
-  background:color-mix(in srgb, var(--nivel) 74%, transparent);
-  border:1px solid color-mix(in srgb, var(--nieve) 9%, transparent);
-  backdrop-filter:blur(20px) saturate(150%);
-  -webkit-backdrop-filter:blur(20px) saturate(150%);
-  box-shadow:0 14px 34px -18px rgba(0,0,0,.85);
-  transition:padding .3s ease, border-radius .3s ease,
-             background-color .3s ease, box-shadow .3s ease;
+  gap:1rem; padding:.7rem 0;
+  transition:padding .3s ease;
 }
-/* estado al despegar del tope */
-.cabecera--pegada .cabecera__caja{
-  padding-block:.35rem;
-  border-radius:14px;
-  background:color-mix(in srgb, var(--nivel) 92%, transparent);
-  box-shadow:0 18px 40px -16px rgba(0,0,0,.95);
-}
+.cabecera--pegada .cabecera__caja{ padding-block:.5rem; }
 
 /* avance de lectura: cero JavaScript, se engancha al scroll de la raíz */
 .cabecera__avance{
-  position:absolute; left:1.1rem; right:1.1rem; bottom:-1px; height:2px;
-  border-radius:2px; transform-origin:0 50%; transform:scaleX(0);
-  background:linear-gradient(90deg,var(--lago-1),var(--dorado));
+  position:absolute; left:0; right:0; bottom:-1px; height:2px;
+  transform-origin:0 50%; transform:scaleX(0);
+  background:var(--dorado-claro);
   opacity:0; transition:opacity .3s ease;
 }
-.cabecera--pegada .cabecera__avance{ opacity:.9; }
+.cabecera--pegada .cabecera__avance{ opacity:1; }
 @supports (animation-timeline:scroll()){
   .cabecera__avance{
     animation:avanzar linear both;
@@ -275,37 +272,39 @@ img,svg{ max-width:100%; }
 @keyframes avanzar{ from{ transform:scaleX(0); } to{ transform:scaleX(1); } }
 .marca{
   display:flex; align-items:center; gap:.65rem; text-decoration:none;
-  color:var(--dorado); min-height:44px;
+  color:var(--papel); min-height:44px;
 }
 /* El pavo real es la marca de verdad del negocio: sale de su logo, con el
-   fondo morado quitado y recortado al contenido. Antes acá había un SVG de
-   siete líneas dibujado a mano, que era el andamio mientras no había
-   material del cliente. Ya lo hay, así que manda el suyo. */
+   fondo morado quitado y recortado al contenido. Va la versión clara,
+   porque la barra es negra; en el pie va la oscura sobre papel. Su rosa
+   original no se usa en ninguna de las dos: no se lee sobre ninguno de
+   los dos fondos. */
 .marca__pavo{
-  width:auto; height:34px; flex:none;
-  transition:transform .45s cubic-bezier(.22,.8,.3,1), filter .35s ease;
-  filter:drop-shadow(0 2px 6px rgba(0,0,0,.5));
+  width:auto; height:32px; flex:none;
+  transition:transform .45s cubic-bezier(.22,.8,.3,1);
 }
 .marca:hover .marca__pavo{ transform:scale(1.09) rotate(-3deg); }
 .marca__txt{
   font-family:var(--display); font-weight:600; font-size:1.12rem;
-  line-height:1.05; color:var(--nieve);
+  line-height:1.05; color:var(--papel);
   display:flex; flex-direction:column;
 }
 .marca__txt small{
   font-family:var(--dato); font-weight:400; font-size:.6rem;
-  letter-spacing:.13em; text-transform:uppercase; color:var(--bruma);
+  letter-spacing:.13em; text-transform:uppercase;
+  color:color-mix(in srgb, var(--papel) 62%, transparent);
   margin-top:.22rem;
 }
 .nav{ position:relative; display:flex; align-items:center; gap:.15rem; flex-wrap:wrap; }
 .nav a{
   position:relative; z-index:1;
   text-decoration:none; font-size:.88rem; font-weight:500;
-  padding:.5rem .7rem; border-radius:999px; color:var(--bruma);
+  padding:.5rem .7rem; border-radius:999px;
+  color:color-mix(in srgb, var(--papel) 72%, transparent);
   transition:color .25s ease;
 }
-.nav a:hover{ color:var(--nieve); }
-.nav a[aria-current="true"]{ color:var(--dorado); }
+.nav a:hover{ color:var(--papel); }
+.nav a[aria-current="true"]{ color:var(--dorado-claro); }
 
 /* La pastilla se desliza de un enlace a otro en vez de que cada uno
    encienda su propio fondo. main.js le pasa posición y ancho; sin
@@ -314,22 +313,23 @@ img,svg{ max-width:100%; }
   position:absolute; left:0; top:50%; z-index:0;
   height:2.05rem; width:0; margin-top:-1.02rem;
   border-radius:999px;
-  background:color-mix(in srgb, var(--dorado) 15%, transparent);
-  border:1px solid color-mix(in srgb, var(--dorado) 28%, transparent);
+  background:color-mix(in srgb, var(--dorado-claro) 16%, transparent);
+  border:1px solid color-mix(in srgb, var(--dorado-claro) 30%, transparent);
   opacity:0; pointer-events:none;
   transition:transform .42s cubic-bezier(.22,.8,.3,1),
              width .42s cubic-bezier(.22,.8,.3,1),
              opacity .25s ease;
 }
+/* En la barra negra el botón va claro: es el único elemento de papel
+   sobre el negro, y por eso se ve antes que cualquier otra cosa. */
 .nav__cta{
-  background:var(--dorado); color:var(--hondo) !important;
+  background:var(--papel); color:var(--noche) !important;
   font-weight:700; border-radius:999px; padding:.5rem 1.05rem;
-  transition:background-color .25s ease, transform .25s ease, box-shadow .25s ease;
+  transition:background-color .25s ease, transform .25s ease;
 }
 .nav__cta:hover{
-  background:#E8C77F; color:var(--hondo) !important;
+  background:var(--dorado-claro); color:var(--noche) !important;
   transform:translateY(-1px);
-  box-shadow:0 8px 18px -8px color-mix(in srgb,var(--dorado) 80%,transparent);
 }
 
 /* ── botones ─────────────────────────────────────────────────────── */
@@ -341,10 +341,12 @@ img,svg{ max-width:100%; }
   transition:transform .16s ease, background-color .16s ease, color .16s ease, border-color .16s ease;
 }
 .boton:hover{ transform:translateY(-2px); }
-.boton--dorado{ background:var(--dorado); color:var(--hondo); border-color:var(--dorado); }
-.boton--dorado:hover{ background:#E8C77F; border-color:#E8C77F; }
-.boton--linea{ border-color:var(--linea); color:var(--nieve); background:transparent; }
-.boton--linea:hover{ border-color:var(--dorado); color:var(--dorado); }
+/* el botón principal es negro sobre papel: sobre una paleta clara no
+   hay acento que pese más que el negro */
+.boton--dorado{ background:var(--noche); color:var(--papel); border-color:var(--noche); }
+.boton--dorado:hover{ background:var(--tinta); border-color:var(--tinta); }
+.boton--linea{ border-color:var(--tinta); color:var(--tinta); background:transparent; }
+.boton--linea:hover{ background:var(--tinta); color:var(--papel); }
 
 /* ── fotografías ─────────────────────────────────────────────────
    Las fotos son del negocio. Van dentro de un marco con esquinas
@@ -358,7 +360,7 @@ img,svg{ max-width:100%; }
 .foto{
   position:relative; margin:0;
   border-radius:var(--radio); overflow:hidden;
-  background:var(--nivel); border:var(--borde);
+  background:var(--nata); border:var(--borde);
 }
 .foto img{
   display:block; width:100%; height:100%;
@@ -376,7 +378,7 @@ img,svg{ max-width:100%; }
   position:absolute; left:0; right:0; bottom:0;
   padding:2rem .9rem .75rem;
   font-family:var(--dato); font-size:.72rem; letter-spacing:.06em;
-  color:var(--nieve);
+  color:var(--papel);
   background:linear-gradient(to top,
     rgba(6,15,21,.95) 0%, rgba(6,15,21,.95) 55%,
     rgba(6,15,21,.55) 78%, transparent 100%);
@@ -393,11 +395,13 @@ img,svg{ max-width:100%; }
    izquierda, foto a la derecha).
 
    Los porcentajes están medidos, no elegidos a ojo. Sobre una foto
-   NÍTIDA el peor punto posible es blanco puro, así que en la franja
-   donde cae el texto el velo no puede bajar del 88 %: ahí la etiqueta
-   "ejemplo" —el color más flojo de la paleta— da 6,1:1 y el texto
-   secundario 7,2:1. Del 60 % del recorrido en adelante ya no hay texto
-   y el velo se suelta hasta casi nada.                              */
+   NÍTIDA el peor punto posible es negro puro, así que en la franja
+   donde cae el texto el velo no puede bajar del 92 %: ahí el bronce
+   —el color más flojo sobre papel— da 4,9:1 y el texto
+   secundario 5,5:1. Ojo: con la paleta clara el peor punto ya no es el
+   pixel más CLARO de la foto sino el más OSCURO, que es el que arrastra
+   el fondo hacia abajo. Del 60 % en adelante ya no hay texto y el velo
+   se suelta hasta casi nada.                                        */
 .portada{
   position:relative; isolation:isolate; overflow:hidden;
   min-height:min(100svh, 780px);
@@ -421,11 +425,11 @@ img,svg{ max-width:100%; }
      el título y la bajada quedaban sobre foto sin velo suficiente: el
      texto llega hasta el 73 % del alto de la portada. */
   background:linear-gradient(to top,
-    var(--hondo) 0%,
-    var(--hondo) 58%,
-    color-mix(in srgb, var(--hondo) 88%, transparent) 80%,
-    color-mix(in srgb, var(--hondo) 40%, transparent) 91%,
-    color-mix(in srgb, var(--hondo) 10%, transparent) 100%);
+    var(--papel) 0%,
+    var(--papel) 58%,
+    color-mix(in srgb, var(--papel) 92%, transparent) 80%,
+    color-mix(in srgb, var(--papel) 40%, transparent) 91%,
+    color-mix(in srgb, var(--papel) 10%, transparent) 100%);
 }
 .portada__caja{
   position:relative;
@@ -441,7 +445,7 @@ img,svg{ max-width:100%; }
 }
 .portada__bajada{
   font-size:clamp(1.05rem,1rem + .35vw,1.22rem);
-  color:var(--bruma); max-width:56ch; margin-bottom:2.2rem;
+  color:var(--humo); max-width:56ch; margin-bottom:2.2rem;
 }
 .portada__acciones{ display:flex; flex-wrap:wrap; gap:.75rem; margin-bottom:3.2rem; }
 
@@ -452,23 +456,23 @@ img,svg{ max-width:100%; }
 .credenciales__item{ min-width:0; }
 .credenciales dt{
   font-family:var(--dato); font-size:.66rem; letter-spacing:.14em;
-  text-transform:uppercase; color:var(--bruma); margin-bottom:.4rem;
+  text-transform:uppercase; color:var(--humo); margin-bottom:.4rem;
 }
 .credenciales dd{ margin:0; display:flex; align-items:baseline; gap:.55rem; }
 .credenciales dd strong{
   font-family:var(--display); font-weight:600; font-size:1.7rem;
-  color:var(--dorado); line-height:1;
+  color:var(--bronce); line-height:1;
 }
-.credenciales dd span{ font-size:.85rem; color:var(--bruma); }
+.credenciales dd span{ font-size:.85rem; color:var(--humo); }
 
 /* Horizonte de los siete lagos. Dibujado, no fotografiado: este negocio
    no tiene material visual público, así que la portada se sostiene sola. */
 .horizonte{ line-height:0; }
 .horizonte svg{ display:block; width:100%; height:clamp(140px,20vw,240px); }
-.horizonte__cielo{ fill:#10222D; }
-.horizonte__cordon{ fill:#0A1720; }
-.horizonte__volcan{ fill:#081319; }
-.horizonte__nieve{ fill:#3E5C6B; }
+.horizonte__cielo{ fill:var(--papel); }
+.horizonte__cordon{ fill:var(--lago-6); }
+.horizonte__volcan{ fill:var(--lago-7); }
+.horizonte__nieve{ fill:var(--papel); }
 .horizonte__agua--7{ fill:var(--lago-7); }
 .horizonte__agua--6{ fill:var(--lago-6); }
 .horizonte__agua--5{ fill:var(--lago-5); }
@@ -486,8 +490,8 @@ img,svg{ max-width:100%; }
   scroll-margin-top:6.5rem;
   --amb:none;
 }
-.cuenta,.tarifas,.lagos,.reservar{ background:var(--hondo-2); --fondo-local:var(--hondo-2); }
-.cabanas,.incluye,.llegar{ background:var(--hondo); --fondo-local:var(--hondo); }
+.cuenta,.tarifas,.lagos,.reservar{ background:var(--crema); --fondo-local:var(--crema); }
+.cabanas,.incluye,.llegar{ background:var(--papel); --fondo-local:var(--papel); }
 
 /* ── ambiente: las mismas fotos, difuminadas, detrás de todo ──────
    Cada sección lleva de fondo una foto del propio negocio, desenfocada
@@ -511,7 +515,7 @@ img,svg{ max-width:100%; }
    Segundo, encima va un velo del color de la sección entre 72 % y 68 %.
    Empezó en 88-85 %, que era seguro pero mataba el color: no se veía el
    verde del bosque, que es lo que le da temperatura a la página. Bajarlo
-   hasta acá se pudo recién después de aclarar --bruma y --merma (ver el
+   hasta acá se pudo recién después de aclarar --humo y --merma (ver el
    comentario de la paleta).
    Con las dos capas, el peor punto de la página da 4,9:1 para la
    etiqueta y 5,8:1 para el texto secundario.
@@ -539,8 +543,8 @@ img,svg{ max-width:100%; }
 }
 .seccion::after{
   background:linear-gradient(to bottom,
-    color-mix(in srgb, var(--fondo-local) 72%, transparent),
-    color-mix(in srgb, var(--fondo-local) 68%, transparent));
+    color-mix(in srgb, var(--fondo-local) 78%, transparent),
+    color-mix(in srgb, var(--fondo-local) 75%, transparent));
 }
 .aguas   { --amb:url("../imagenes/amb-piscina-techada.jpg"); }
 .cuenta  { --amb:url("../imagenes/amb-piscina-atardecer.jpg"); }
@@ -554,7 +558,7 @@ img,svg{ max-width:100%; }
 .titular{ max-width:64ch; margin:0 auto clamp(2.5rem,5vw,3.5rem); text-align:center; }
 .titular--izq{ margin-inline:0; text-align:left; }
 .titular h2{ font-size:clamp(1.75rem,1.2rem + 2.1vw,2.75rem); margin-bottom:1rem; }
-.titular__bajada{ color:var(--bruma); margin:0; }
+.titular__bajada{ color:var(--humo); margin:0; }
 
 .caja--doble{ display:grid; gap:clamp(2rem,4vw,3.5rem); }
 .caja--doble > *{ min-width:0; }
@@ -572,63 +576,63 @@ img,svg{ max-width:100%; }
 .boleta{ margin:0; }
 .boleta svg{ display:block; width:100%; height:auto; }
 
-.bol__papel{ fill:var(--nivel); stroke:var(--linea); stroke-width:1; }
-.bol__papel--directo{ fill:var(--nivel-alto); stroke:var(--dorado); stroke-width:1.5; }
+.bol__papel{ fill:var(--nata); stroke:var(--linea); stroke-width:1; }
+.bol__papel--directo{ fill:var(--nata-2); stroke:var(--bronce); stroke-width:1.5; }
 
 .bol__linea{ stroke:var(--linea); stroke-width:1; fill:none; }
-.bol__corte{ stroke:var(--bruma); stroke-width:1.2; stroke-dasharray:5 6; fill:none; opacity:.6; }
+.bol__corte{ stroke:var(--humo); stroke-width:1.2; stroke-dasharray:5 6; fill:none; opacity:.6; }
 
 .bol__canal{
   font-family:var(--dato); font-size:14px; letter-spacing:.18em;
-  fill:var(--dorado);
+  fill:var(--bronce);
 }
 .bol__canal--merma{ fill:var(--merma); }
-.bol__tit{ font-family:var(--display); font-weight:600; font-size:27px; fill:var(--nieve); }
-.bol__sub{ font-family:var(--dato); font-size:14px; fill:var(--bruma); }
+.bol__tit{ font-family:var(--display); font-weight:600; font-size:27px; fill:var(--tinta); }
+.bol__sub{ font-family:var(--dato); font-size:14px; fill:var(--humo); }
 .bol__ficha{
   font-family:var(--dato); font-size:13.5px; letter-spacing:.06em;
-  fill:var(--bruma);
+  fill:var(--humo);
 }
 
-.bol__lab{ font-family:var(--cuerpo); font-size:17px; fill:var(--nieve); }
-.bol__lab--nulo{ fill:var(--bruma); }
+.bol__lab{ font-family:var(--cuerpo); font-size:17px; fill:var(--tinta); }
+.bol__lab--nulo{ fill:var(--humo); }
 .bol__val{
-  font-family:var(--dato); font-size:17.5px; fill:var(--nieve);
+  font-family:var(--dato); font-size:17.5px; fill:var(--tinta);
   text-anchor:end;
 }
-.bol__val--nulo{ fill:var(--bruma); }
+.bol__val--nulo{ fill:var(--humo); }
 .bol__val--merma{ fill:var(--merma); }
-.bol__val--dorado{ fill:var(--dorado); }
+.bol__val--dorado{ fill:var(--bronce); }
 
-.bol__totlab{ font-family:var(--cuerpo); font-weight:600; font-size:16px; fill:var(--nieve); }
+.bol__totlab{ font-family:var(--cuerpo); font-weight:600; font-size:16px; fill:var(--tinta); }
 .bol__totval{
   font-family:var(--dato); font-weight:500; font-size:20px;
-  fill:var(--nieve); text-anchor:end;
+  fill:var(--tinta); text-anchor:end;
 }
-.bol__totval--dorado{ fill:var(--dorado); }
+.bol__totval--dorado{ fill:var(--bronce); }
 
 .bol__cierre-lab{
   font-family:var(--dato); font-size:13.5px; letter-spacing:.16em;
-  fill:var(--bruma);
+  fill:var(--humo);
 }
 .bol__cierre-val{
   font-family:var(--display); font-weight:600; font-size:42px;
-  fill:var(--dorado);
+  fill:var(--bronce);
 }
 .bol__cierre-val--merma{ fill:var(--merma); }
 
-.bol__nota{ font-family:var(--cuerpo); font-size:15px; fill:var(--bruma); }
-.bol__barras{ stroke:var(--bruma); stroke-width:2.2; opacity:.28; }
+.bol__nota{ font-family:var(--cuerpo); font-size:15px; fill:var(--humo); }
+.bol__barras{ stroke:var(--humo); stroke-width:2.2; opacity:.28; }
 
 /* la diferencia, en números grandes */
 .diferencia{
-  background:var(--nivel); border:var(--borde); border-radius:var(--radio);
+  background:var(--nata); border:var(--borde); border-radius:var(--radio);
   padding:clamp(1.5rem,3vw,2.2rem);
   margin-bottom:clamp(2rem,4vw,3rem);
 }
 .diferencia__ojo{
   font-family:var(--dato); font-size:.68rem; letter-spacing:.16em;
-  text-transform:uppercase; color:var(--bruma); margin:0 0 1.4rem;
+  text-transform:uppercase; color:var(--humo); margin:0 0 1.4rem;
 }
 .diferencia__lista{
   list-style:none; margin:0; padding:0;
@@ -638,20 +642,20 @@ img,svg{ max-width:100%; }
 .diferencia__lista li{ display:flex; flex-direction:column; gap:.2rem; min-width:0; }
 .diferencia__lista strong{
   font-family:var(--dato); font-weight:500; font-size:clamp(1.2rem,1rem + 1vw,1.6rem);
-  color:var(--nieve); line-height:1.1;
+  color:var(--tinta); line-height:1.1;
 }
-.diferencia__lista span{ font-size:.83rem; color:var(--bruma); }
+.diferencia__lista span{ font-size:.83rem; color:var(--humo); }
 .diferencia__suma{
-  padding-left:1.5rem; border-left:2px solid var(--dorado);
+  padding-left:1.5rem; border-left:2px solid var(--bronce);
 }
-.diferencia__suma strong{ color:var(--dorado); }
+.diferencia__suma strong{ color:var(--bronce); }
 
 .remate{
   max-width:60ch; margin-inline:auto; text-align:center;
   font-family:var(--display); font-size:clamp(1.1rem,1rem + .6vw,1.4rem);
-  line-height:1.45; color:var(--bruma);
+  line-height:1.45; color:var(--humo);
 }
-.remate strong{ color:var(--nieve); font-weight:600; }
+.remate strong{ color:var(--tinta); font-weight:600; }
 
 /* ── las cabañas ─────────────────────────────────────────────────── */
 .rejilla-cabanas{
@@ -660,11 +664,11 @@ img,svg{ max-width:100%; }
 }
 .rejilla-cabanas > *{ min-width:0; }
 .cabana{
-  background:var(--nivel); border:var(--borde); border-radius:var(--radio);
+  background:var(--nata); border:var(--borde); border-radius:var(--radio);
   overflow:hidden;
   display:flex; flex-direction:column;
 }
-.cabana--destacada{ background:var(--nivel-alto); border-color:color-mix(in srgb,var(--dorado) 45%,transparent); }
+.cabana--destacada{ background:var(--nata-2); border-color:color-mix(in srgb,var(--bronce) 45%,transparent); }
 /* la foto va al ras del borde de la tarjeta, sin marco propio */
 .cabana__foto{ border:0; border-radius:0; }
 .cabana__foto img{ aspect-ratio:16/11; }
@@ -672,20 +676,20 @@ img,svg{ max-width:100%; }
 .cabana__nombre{ font-size:1.35rem; margin-bottom:.3rem; }
 .cabana__cupo{
   font-family:var(--dato); font-size:.75rem; letter-spacing:.1em;
-  text-transform:uppercase; color:var(--dorado); margin-bottom:1rem;
+  text-transform:uppercase; color:var(--bronce); margin-bottom:1rem;
 }
 .cabana__lista{
   list-style:none; margin:0 0 1rem; padding:0;
-  display:grid; gap:.45rem; font-size:.92rem; color:var(--bruma);
+  display:grid; gap:.45rem; font-size:.92rem; color:var(--humo);
 }
 .cabana__lista li{ padding-left:1.1rem; position:relative; }
 .cabana__lista li::before{
   content:""; position:absolute; left:0; top:.62em;
-  width:.45rem; height:1px; background:var(--dorado);
+  width:.45rem; height:1px; background:var(--bronce);
 }
 .cabana__nota{
   margin-top:auto; padding-top:.9rem; border-top:var(--borde);
-  font-size:.82rem; color:var(--dorado); font-style:italic;
+  font-size:.82rem; color:var(--bronce); font-style:italic;
 }
 
 /* ── aguas calientes y spa ───────────────────────────────────────
@@ -699,7 +703,7 @@ img,svg{ max-width:100%; }
 }
 .aguas__principal > *{ min-width:0; }
 .aguas__texto h3{ font-size:clamp(1.4rem,1.1rem + 1vw,1.9rem); margin-bottom:.7rem; }
-.aguas__texto p{ color:var(--bruma); }
+.aguas__texto p{ color:var(--humo); }
 .aguas__mosaico{
   display:grid; gap:clamp(1rem,2vw,1.4rem);
   grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
@@ -708,20 +712,20 @@ img,svg{ max-width:100%; }
 
 .lista-marca{
   list-style:none; margin:1.2rem 0 0; padding:0;
-  display:grid; gap:.55rem; font-size:.94rem; color:var(--bruma);
+  display:grid; gap:.55rem; font-size:.94rem; color:var(--humo);
 }
 .lista-marca li{ padding-left:1.5rem; position:relative; }
 .lista-marca li::before{
   content:""; position:absolute; left:0; top:.5em;
   width:.6rem; height:.6rem; border-radius:50%;
-  border:1.5px solid var(--dorado);
+  border:1.5px solid var(--bronce);
 }
 
 /* ── subtítulo dentro de una sección ─────────────────────────────── */
 .subtitulo{
   font-family:var(--dato); font-weight:400;
   font-size:.72rem; letter-spacing:.16em; text-transform:uppercase;
-  color:var(--bruma);
+  color:var(--humo);
   margin:clamp(2.5rem,5vw,3.5rem) 0 1.4rem;
   padding-bottom:.7rem; border-bottom:1px solid var(--linea);
 }
@@ -744,48 +748,48 @@ img,svg{ max-width:100%; }
   flex:1; border:1.5px dashed var(--linea); border-radius:var(--radio);
   padding:1.8rem 1.5rem; text-align:center;
   display:flex; flex-direction:column; align-items:center; justify-content:center;
-  gap:.6rem; background:color-mix(in srgb,var(--nivel) 55%,transparent);
+  gap:.6rem; background:color-mix(in srgb,var(--nata) 55%,transparent);
   min-height:220px;
 }
-.hueco-foto__marco svg{ width:44px; height:44px; color:var(--bruma); margin-bottom:.2rem; }
+.hueco-foto__marco svg{ width:44px; height:44px; color:var(--humo); margin-bottom:.2rem; }
 .hueco-foto__marco p{ margin:0; }
 .hueco-foto__marco b{ font-family:var(--display); font-size:1.1rem; font-weight:600; }
-.hueco-foto__pie{ font-size:.86rem; color:var(--bruma); max-width:38ch; }
+.hueco-foto__pie{ font-size:.86rem; color:var(--humo); max-width:38ch; }
 
 /* ── tarifas ─────────────────────────────────────────────────────── */
 .tabla-marco{
-  background:var(--nivel); border:var(--borde); border-radius:var(--radio);
+  background:var(--nata); border:var(--borde); border-radius:var(--radio);
   overflow:hidden; margin-bottom:clamp(2rem,4vw,2.8rem);
 }
 .tabla{ width:100%; border-collapse:collapse; text-align:left; }
 .tabla caption{ caption-side:bottom; }
 .tabla__pie{
-  padding:1rem 1.3rem 1.2rem; font-size:.82rem; color:var(--bruma);
+  padding:1rem 1.3rem 1.2rem; font-size:.82rem; color:var(--humo);
   text-align:left; border-top:var(--borde);
 }
 .tabla th,.tabla td{ padding:1rem 1.3rem; border-bottom:1px solid var(--linea); }
 .tabla thead th{
   font-family:var(--dato); font-weight:400; font-size:.66rem;
-  letter-spacing:.14em; text-transform:uppercase; color:var(--bruma);
-  background:var(--hondo-2);
+  letter-spacing:.14em; text-transform:uppercase; color:var(--humo);
+  background:var(--crema);
 }
 .tabla tbody th{
-  font-family:var(--display); font-weight:600; font-size:1.15rem; color:var(--nieve);
+  font-family:var(--display); font-weight:600; font-size:1.15rem; color:var(--tinta);
 }
-.tabla tbody td{ font-family:var(--dato); font-size:.95rem; color:var(--bruma); }
-.tabla tbody td b{ color:var(--dorado); font-weight:500; }
+.tabla tbody td{ font-family:var(--dato); font-size:.95rem; color:var(--humo); }
+.tabla tbody td b{ color:var(--bronce); font-weight:500; }
 .tabla tbody tr:last-child th,.tabla tbody tr:last-child td{ border-bottom:0; }
 
 .letra-chica{
   display:grid; gap:.7rem;
-  max-width:70ch; font-size:.9rem; color:var(--bruma);
+  max-width:70ch; font-size:.9rem; color:var(--humo);
 }
 .letra-chica p{ margin:0; padding-left:1.2rem; position:relative; }
 .letra-chica p::before{
   content:""; position:absolute; left:0; top:.62em;
-  width:.5rem; height:1px; background:var(--dorado);
+  width:.5rem; height:1px; background:var(--bronce);
 }
-.letra-chica b{ color:var(--nieve); font-weight:600; }
+.letra-chica b{ color:var(--tinta); font-weight:600; }
 
 /* ── qué incluye ─────────────────────────────────────────────────── */
 .rejilla-iconos{
@@ -795,12 +799,12 @@ img,svg{ max-width:100%; }
 }
 .rejilla-iconos > *{ min-width:0; }
 .ficha{
-  background:var(--nivel); border:var(--borde); border-radius:var(--radio);
+  background:var(--nata); border:var(--borde); border-radius:var(--radio);
   padding:1.4rem 1.3rem 1.5rem;
 }
-.ficha__icono{ width:40px; height:40px; color:var(--dorado); margin-bottom:.7rem; }
+.ficha__icono{ width:40px; height:40px; color:var(--bronce); margin-bottom:.7rem; }
 .ficha h3{ font-size:1.18rem; margin-bottom:.4rem; }
-.ficha p{ font-size:.92rem; color:var(--bruma); margin:0; }
+.ficha p{ font-size:.92rem; color:var(--humo); margin:0; }
 /* el ícono respira cuando el cursor entra a la ficha */
 .ficha__icono{ transition:transform .45s cubic-bezier(.22,.8,.3,1), color .3s ease; }
 .ficha:hover .ficha__icono{ transform:scale(1.12) rotate(-4deg); color:#E8C77F; }
@@ -826,16 +830,16 @@ img,svg{ max-width:100%; }
 }
 .siete__item:last-child{ border-bottom:0; }
 .siete__num{
-  font-family:var(--dato); font-size:.75rem; color:var(--dorado);
+  font-family:var(--dato); font-size:.75rem; color:var(--bronce);
   grid-row:span 2;
 }
 .siete__nom{ font-family:var(--display); font-weight:600; font-size:1.25rem; }
 .siete__dist{
-  font-family:var(--dato); font-size:.85rem; color:var(--bruma);
+  font-family:var(--dato); font-size:.85rem; color:var(--humo);
   white-space:nowrap; grid-row:span 2;
 }
 .siete__item p{
-  grid-column:2; margin:0; font-size:.92rem; color:var(--bruma);
+  grid-column:2; margin:0; font-size:.92rem; color:var(--humo);
 }
 
 /* ── cómo llegar ─────────────────────────────────────────────────── */
@@ -847,35 +851,35 @@ img,svg{ max-width:100%; }
 }
 .ruta li:last-child{ border-bottom:0; }
 .ruta__km{
-  font-family:var(--dato); font-size:.85rem; color:var(--dorado);
+  font-family:var(--dato); font-size:.85rem; color:var(--bronce);
   padding-top:.15rem;
 }
-.ruta p{ margin:0; font-size:.94rem; color:var(--bruma); }
-.ruta b{ color:var(--nieve); font-weight:600; }
-.llegar__nota{ font-size:.9rem; color:var(--bruma); max-width:56ch; }
+.ruta p{ margin:0; font-size:.94rem; color:var(--humo); }
+.ruta b{ color:var(--tinta); font-weight:600; }
+.llegar__nota{ font-size:.9rem; color:var(--humo); max-width:56ch; }
 
 /* ── formulario ──────────────────────────────────────────────────── */
 .form{
   display:grid; gap:1.1rem 1.2rem;
   grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-  background:var(--nivel); border:var(--borde); border-radius:var(--radio);
+  background:var(--nata); border:var(--borde); border-radius:var(--radio);
   padding:clamp(1.4rem,3vw,2.2rem);
   margin-bottom:1.6rem;
 }
 .campo{ display:flex; flex-direction:column; gap:.4rem; min-width:0; }
 .campo--ancho{ grid-column:1 / -1; }
-.campo label{ font-size:.82rem; font-weight:600; color:var(--bruma); }
-.campo__opc{ font-weight:400; color:var(--bruma); opacity:.8; }
+.campo label{ font-size:.82rem; font-weight:600; color:var(--humo); }
+.campo__opc{ font-weight:400; color:var(--humo); opacity:.8; }
 .campo input,.campo select,.campo textarea{
   font-family:var(--cuerpo); font-size:1rem;
-  background:var(--hondo); color:var(--nieve);
+  background:var(--papel); color:var(--tinta);
   border:1px solid var(--linea); border-radius:6px;
   padding:.7rem .8rem; min-height:46px;
   width:100%;
 }
 .campo textarea{ resize:vertical; min-height:88px; }
-.campo input::placeholder,.campo textarea::placeholder{ color:color-mix(in srgb,var(--bruma) 70%,transparent); }
-.campo input:hover,.campo select:hover,.campo textarea:hover{ border-color:var(--bruma); }
+.campo input::placeholder,.campo textarea::placeholder{ color:color-mix(in srgb,var(--humo) 70%,transparent); }
+.campo input:hover,.campo select:hover,.campo textarea:hover{ border-color:var(--humo); }
 
 .form__pie{
   grid-column:1 / -1;
@@ -883,7 +887,7 @@ img,svg{ max-width:100%; }
   gap:1rem; padding-top:.6rem; border-top:var(--borde);
 }
 .form__resumen{
-  margin:0; font-family:var(--dato); font-size:.85rem; color:var(--dorado);
+  margin:0; font-family:var(--dato); font-size:.85rem; color:var(--bronce);
   flex:1 1 16rem; min-width:0;
 }
 .form__pie .boton{ min-height:46px; }
@@ -894,26 +898,26 @@ img,svg{ max-width:100%; }
   grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
 }
 .contacto__item{
-  background:var(--nivel); padding:1.1rem 1.2rem;
+  background:var(--nata); padding:1.1rem 1.2rem;
   display:flex; flex-direction:column; gap:.25rem;
   text-decoration:none; min-width:0; min-height:44px;
 }
 .contacto__item span{
   font-family:var(--dato); font-size:.64rem; letter-spacing:.14em;
-  text-transform:uppercase; color:var(--bruma);
+  text-transform:uppercase; color:var(--humo);
 }
 .contacto__item strong{ font-weight:600; font-size:.98rem; }
-a.contacto__item:hover{ background:var(--nivel-alto); }
-a.contacto__item:hover strong{ color:var(--dorado); }
+a.contacto__item:hover{ background:var(--nata-2); }
+a.contacto__item:hover strong{ color:var(--bronce); }
 /* la etiqueta "ejemplo" de la dirección cae dentro de una celda del
    contacto, así que su fondo es el de la tarjeta, no el de la sección */
-.contacto__item.ej{ --fondo-local:var(--nivel); outline-offset:-8px; }
+.contacto__item.ej{ --fondo-local:var(--nata); outline-offset:-8px; }
 .contacto__item.ej::after{ top:auto; bottom:6px; right:8px; transform:none; }
 
 /* ── la propuesta ────────────────────────────────────────────────── */
 .hablemos{
-  background:var(--lago-7); --fondo-local:var(--lago-7);
-  border-top:2px solid var(--dorado);
+  background:var(--noche); --fondo-local:var(--noche);
+  border-top:0;
   --amb:url("../imagenes/amb-piscina-noche.jpg");
 }
 /* Su base (--lago-7) es más clara que la del resto, así que con el velo
@@ -921,13 +925,27 @@ a.contacto__item:hover strong{ color:var(--dorado); }
    centésimas por debajo del mínimo. Acá el velo va un punto más cerrado. */
 .hablemos::after{
   background:linear-gradient(to bottom,
-    color-mix(in srgb, var(--fondo-local) 78%, transparent),
-    color-mix(in srgb, var(--fondo-local) 74%, transparent));
+    color-mix(in srgb, var(--fondo-local) 90%, transparent),
+    color-mix(in srgb, var(--fondo-local) 87%, transparent));
 }
+/* Todo lo que entra a la sección negra necesita su versión clara. La
+   página es de papel, así que los colores por defecto —tinta, bronce,
+   merma, el botón de línea— son todos oscuros y acá desaparecen. Medido:
+   sin estas cuatro reglas el titular quedaba en 1,28:1. */
 .hablemos__titulo{
   font-size:clamp(1.8rem,1.2rem + 2.4vw,3rem);
   margin-bottom:clamp(2rem,4vw,3rem);
+  color:var(--papel);
 }
+.hablemos .ojo--dorado{ color:var(--dorado-claro); }
+.hablemos .ej--inline{
+  color:#F0A98F;
+  outline-color:color-mix(in srgb, #F0A98F 55%, transparent);
+}
+.hablemos .boton--linea{ border-color:color-mix(in srgb,var(--papel) 45%,transparent); color:var(--papel); }
+.hablemos .boton--linea:hover{ background:var(--papel); color:var(--noche); border-color:var(--papel); }
+.hablemos .boton--dorado{ background:var(--papel); color:var(--noche); border-color:var(--papel); }
+.hablemos .boton--dorado:hover{ background:var(--dorado-claro); border-color:var(--dorado-claro); color:var(--noche); }
 .hablemos__rejilla{
   display:grid; gap:clamp(1.6rem,3vw,2.4rem);
   grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
@@ -935,29 +953,31 @@ a.contacto__item:hover strong{ color:var(--dorado); }
 }
 .hablemos__rejilla > *{ min-width:0; }
 .hablemos__rejilla > div{
-  background:color-mix(in srgb,var(--nivel) 60%,transparent);
-  border:1px solid color-mix(in srgb,var(--nieve) 8%,transparent);
+  background:color-mix(in srgb,var(--papel) 7%,transparent);
+  border:1px solid color-mix(in srgb,var(--papel) 14%,transparent);
   border-radius:var(--radio);
   padding:1.5rem 1.4rem;
 }
 .hablemos__rejilla h3{
-  font-size:1.2rem; color:var(--dorado); margin-bottom:.6rem;
+  font-size:1.2rem; color:var(--dorado-claro); margin-bottom:.6rem;
 }
-.hablemos__rejilla p{ font-size:.94rem; color:var(--bruma); margin:0; }
-.hablemos__rejilla strong,.hablemos__rejilla b{ color:var(--nieve); font-weight:600; }
-.hablemos__rejilla code{ font-family:var(--dato); font-size:.9em; color:var(--nieve); }
-.hablemos__rejilla a{ color:var(--dorado); text-underline-offset:3px; }
+.hablemos__rejilla p{ font-size:.94rem; color:color-mix(in srgb,var(--papel) 76%,transparent); margin:0; }
+.hablemos__rejilla strong,.hablemos__rejilla b{ color:var(--papel); font-weight:600; }
+.hablemos__rejilla code{ font-family:var(--dato); font-size:.9em; color:var(--papel); }
+.hablemos__rejilla a{ color:var(--dorado-claro); text-underline-offset:3px; }
 .hablemos__acciones{ display:flex; flex-wrap:wrap; gap:.75rem; }
 
 /* ── pie ─────────────────────────────────────────────────────────── */
-.pie{ background:var(--hondo); padding:2.5rem 0; border-top:var(--borde); }
+.pie{ background:var(--papel); padding:2.5rem 0; border-top:var(--borde); }
 .caja--pie{ display:grid; gap:.5rem; justify-items:start; }
-/* El logo del negocio, en su color rosa pálido original. No se recolorea
-   al dorado del sitio: es su marca, no un elemento de interfaz. */
+/* El logo del negocio, recoloreado al morado de su propia marca. El rosa
+   pálido del archivo original está hecho para ir sobre su fondo morado y
+   sobre papel desaparece: se conserva el canal alfa —la forma exacta— y
+   se reemplaza el color. */
 .pie__logo{ width:auto; height:clamp(64px,10vw,86px); margin-bottom:.9rem; }
 .pie__marca{ font-family:var(--display); font-weight:600; margin:0; }
-.pie__nota{ margin:0; font-size:.85rem; color:var(--bruma); max-width:66ch; }
-.pie__nota a{ color:var(--dorado); font-weight:600; }
+.pie__nota{ margin:0; font-size:.85rem; color:var(--humo); max-width:66ch; }
+.pie__nota a{ color:var(--bronce); font-weight:600; }
 
 /* ── vida en los recuadros ───────────────────────────────────────
    Tres cosas que pasan cuando el cursor entra a una tarjeta:
@@ -996,11 +1016,19 @@ a.contacto__item:hover strong{ color:var(--dorado); }
 .tabla-marco:hover,
 .form:hover,
 .hueco-foto__marco:hover,
+/* Esta sección es la única de fondo negro, así que su realce va al revés
+   que el del resto: la tarjeta se aclara un punto en vez de oscurecerse.
+   Con el hover común —que pinta de crema— el texto claro de adentro
+   quedaba ilegible al pasar el cursor. */
 .hablemos__rejilla > div:hover{
   translate:0 -5px;
-  background-color:var(--nivel-alto);
-  border-color:color-mix(in srgb,var(--dorado) 30%,transparent);
-  box-shadow:0 20px 38px -22px rgba(0,0,0,.9);
+  background-color:color-mix(in srgb,var(--papel) 13%,transparent);
+  border-color:color-mix(in srgb,var(--dorado-claro) 45%,transparent);
+  box-shadow:0 20px 38px -22px rgba(0,0,0,.6);
+}
+.hablemos__rejilla > div::before{
+  background:radial-gradient(220px circle at var(--mx,50%) var(--my,50%),
+             var(--dorado-claro), transparent 62%) !important;
 }
 .hueco-foto__marco:hover{ border-style:dashed; }
 
@@ -1008,7 +1036,7 @@ a.contacto__item:hover strong{ color:var(--dorado); }
    pixel, dentro de un marco con overflow:hidden. Si una celda se
    elevara, se recortaría contra el marco y rompería la retícula: acá
    el realce es sólo de fondo y de borde encendido. */
-a.contacto__item:hover{ background-color:var(--nivel-alto); }
+a.contacto__item:hover{ background-color:var(--nata-2); }
 
 @supports ((-webkit-mask-composite:xor) or (mask-composite:exclude)){
   .cabana::before,
@@ -1022,7 +1050,7 @@ a.contacto__item:hover{ background-color:var(--nivel-alto); }
     content:""; position:absolute; inset:0; border-radius:inherit;
     padding:1px;
     background:radial-gradient(220px circle at var(--mx,50%) var(--my,50%),
-               var(--dorado), transparent 62%);
+               var(--bronce), transparent 62%);
     -webkit-mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
     -webkit-mask-composite:xor;
             mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
@@ -1044,7 +1072,7 @@ a.contacto__item:hover{ background-color:var(--nivel-alto); }
 .boleta{ transition:translate .45s cubic-bezier(.22,.8,.3,1), filter .45s ease; }
 .boleta:hover{ translate:0 -6px; }
 .boleta--directo:hover{
-  filter:drop-shadow(0 16px 26px color-mix(in srgb,var(--dorado) 26%,transparent));
+  filter:drop-shadow(0 16px 26px color-mix(in srgb,var(--bronce) 26%,transparent));
 }
 .boleta:not(.boleta--directo):hover{
   filter:drop-shadow(0 16px 26px rgba(0,0,0,.55));
@@ -1057,23 +1085,23 @@ a.contacto__item:hover{ background-color:var(--nivel-alto); }
   border-radius:8px;
 }
 .siete__item:hover{
-  background:color-mix(in srgb,var(--nivel) 70%,transparent);
+  background:color-mix(in srgb,var(--nata) 70%,transparent);
   padding-left:.8rem;
 }
 .siete__num,.siete__nom{ transition:color .3s ease; }
-.siete__item:hover .siete__nom{ color:var(--dorado); }
+.siete__item:hover .siete__nom{ color:var(--bronce); }
 
 /* Un brillo que barre el botón al pasar por encima. */
 .boton{ position:relative; overflow:hidden; isolation:isolate; }
 .boton::before{
   content:""; position:absolute; inset:0; z-index:-1;
   background:linear-gradient(105deg, transparent 35%,
-             color-mix(in srgb,var(--nieve) 30%,transparent) 50%, transparent 65%);
+             color-mix(in srgb,var(--tinta) 30%,transparent) 50%, transparent 65%);
   translate:-120% 0;
   transition:translate .6s cubic-bezier(.22,.8,.3,1);
 }
 .boton:hover::before{ translate:120% 0; }
-.boton--linea:hover{ background:color-mix(in srgb,var(--dorado) 8%,transparent); }
+.boton--linea:hover{ background:color-mix(in srgb,var(--bronce) 8%,transparent); }
 
 /* ── movimiento ──────────────────────────────────────────────────
    Dos mecanismos distintos, y la diferencia importa:
@@ -1200,13 +1228,13 @@ a.contacto__item:hover{ background-color:var(--nivel-alto); }
   .portada__velo{
     background:
       linear-gradient(to right,
-        var(--hondo) 0%,
-        color-mix(in srgb, var(--hondo) 90%, transparent) 46%,
-        color-mix(in srgb, var(--hondo) 88%, transparent) 58%,
-        color-mix(in srgb, var(--hondo) 40%, transparent) 78%,
-        color-mix(in srgb, var(--hondo) 8%, transparent) 100%),
+        var(--papel) 0%,
+        color-mix(in srgb, var(--papel) 94%, transparent) 46%,
+        color-mix(in srgb, var(--papel) 92%, transparent) 58%,
+        color-mix(in srgb, var(--papel) 40%, transparent) 78%,
+        color-mix(in srgb, var(--papel) 8%, transparent) 100%),
       linear-gradient(to top,
-        color-mix(in srgb, var(--hondo) 60%, transparent) 0%,
+        color-mix(in srgb, var(--papel) 60%, transparent) 0%,
         transparent 38%);
   }
   .aguas__principal{ grid-template-columns:.85fr 1.15fr; }
@@ -1243,49 +1271,66 @@ a.contacto__item:hover{ background-color:var(--nivel-alto); }
   .tabla tbody td::before{
     content:attr(data-col);
     font-family:var(--dato); font-size:.66rem; letter-spacing:.12em;
-    text-transform:uppercase; color:var(--bruma);
+    text-transform:uppercase; color:var(--humo);
     align-self:center;
   }
 }
 
 /* ── móvil ───────────────────────────────────────────────────────── */
 @media (max-width:640px){
-  /* La isla pasa a dos filas y el menú se desliza de lado dentro de
-     ella. Nunca se esconde el menú dejando sólo el CTA: en un teléfono
-     —que es donde se va a abrir este enlace— eso deja a la gente sin
-     manera de llegar a Tarifas. */
-  .cabecera{ padding-block:.5rem; }
+  /* La barra pasa a dos filas y el menú se desliza de lado. Nunca se
+     esconde el menú dejando sólo el CTA: en un teléfono —que es donde
+     se va a abrir este enlace— eso deja a la gente sin manera de
+     llegar a Tarifas.
+
+     El menú sangra hasta el borde de la pantalla y no hasta el margen
+     del contenedor: así el primer y el último enlace no quedan cortados
+     a medias cuando la fila está desplazada. */
   .cabecera__caja{
-    flex-wrap:wrap; gap:.2rem;
-    padding:.5rem .9rem .35rem;
-    border-radius:16px;
+    flex-wrap:wrap; gap:.15rem;
+    padding:.45rem 0 .3rem;
   }
   .marca{ flex:1 1 auto; }
+  .marca__pavo{ height:28px; }
+  .marca__txt{ font-size:1rem; }
   .nav{
     flex:1 0 100%;
     flex-wrap:nowrap;
     overflow-x:auto;
     -webkit-overflow-scrolling:touch;
     scrollbar-width:none;
-    /* sangra hasta el borde interno de la isla, para que el primer y
-       el último enlace no queden pegados al canto al deslizar */
-    margin-inline:-.9rem;
-    padding:.1rem .9rem .35rem;
+    margin-inline:-1.25rem;
+    padding:.1rem 1.25rem .25rem;
   }
   .nav::-webkit-scrollbar{ display:none; }
   /* 44 px es el mínimo que un dedo acierta sin pelear. Con el padding
      de escritorio estos enlaces quedaban en 38. */
-  .nav a{ flex:none; white-space:nowrap; padding:.72rem .8rem; }
+  .nav a{ flex:none; white-space:nowrap; padding:.72rem .75rem; }
   /* la pastilla se calcula con offsetLeft dentro de un contenedor que
      además se desplaza: en el teléfono no aporta y puede desfasarse */
   .nav__pastilla{ display:none; }
-  .cabecera__avance{ left:.9rem; right:.9rem; }
 
-  .seccion{ scroll-margin-top:9.5rem; }
-  .credenciales{ gap:1.4rem 2rem; }
+  .seccion{ scroll-margin-top:8rem; }
+
+  /* La portada medía 1328 px en una pantalla de 812: había que bajar dos
+     veces para pasarla. Se recortó por donde sobraba —el aire de arriba,
+     los márgenes entre bloques y las tres credenciales apiladas una bajo
+     otra, que solas se llevaban 223 px—. La foto de arriba sigue siendo
+     lo primero que se ve, que es de lo que se trataba. */
+  .portada{ padding-top:30svh; }
+  .portada__titulo{ margin-bottom:1rem; }
+  .portada__bajada{ font-size:1rem; margin-bottom:1.5rem; }
+  .portada__acciones{ gap:.6rem; margin-bottom:2rem; }
   .portada__acciones .boton{ flex:1 1 100%; }
+  .credenciales{
+    display:grid; grid-template-columns:1fr 1fr; gap:1rem 1.2rem;
+    padding-top:1.2rem;
+  }
+  .credenciales__item:first-child{ grid-column:1 / -1; }
+  .credenciales dd strong{ font-size:1.4rem; }
+  .credenciales dd{ flex-wrap:wrap; gap:.2rem .5rem; }
   .form__pie .boton{ flex:1 1 100%; }
   .ej{ outline-offset:6px; }
   .ej::after{ top:-6px; right:-6px; }
-  .diferencia__suma{ padding-left:0; padding-top:1rem; border-left:0; border-top:2px solid var(--dorado); }
+  .diferencia__suma{ padding-left:0; padding-top:1rem; border-left:0; border-top:2px solid var(--bronce); }
 }
